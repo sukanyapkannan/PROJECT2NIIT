@@ -1,5 +1,8 @@
 package com.niit.DaoImpl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import com.niit.Dao.UserDao;
 import com.niit.Model.User;
 
-@Repository
+@Repository("UserDao")
 public class UserDaoImpl implements UserDao
 {
 	@Autowired
@@ -28,7 +31,7 @@ public class UserDaoImpl implements UserDao
 
 	
 
-	public void saveUser(User u) 
+	public boolean saveUser(User u) 
 	{
 		System.out.println("in saveUser"+u.getEmail());
 		Session s=sessionF.openSession();
@@ -36,12 +39,40 @@ public class UserDaoImpl implements UserDao
 		s.save(u);
 		s.getTransaction().commit();
 		s.close();
+		return true;
 		
 	}
 
 
-	public User getUser(String mailid) {
-		// TODO Auto-generated method stub
-		return null;
+
+	public List<User> getAllUser() 
+	{
+		Session k=sessionF.openSession();
+		List<User> ulist=k.createQuery("from User").list();
+		return ulist;	
+				
+	}
+
+
+	
+
+	public void updateUser(User user)
+	{
+		Session s=sessionF.openSession();
+		s.beginTransaction();
+		s.update(user);
+		s.getTransaction().commit();
+		s.close();
+		
+		
+	}
+
+
+	public User getUser(int id) {
+		
+		Session k=sessionF.openSession();
+		User c=(User)k.get(User.class, id);
+		return c;
+		
 	}
 }

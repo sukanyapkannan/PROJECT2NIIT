@@ -1,10 +1,18 @@
 package com.niit.Dao;
 
+
+import java.util.List;
+
 import com.niit.Model.User;
 
 public interface UserDao 
 {
-void saveUser(User u);
+    boolean saveUser(User u);
 	
-	User getUser(String mailid);
+	User getUser(int id);
+
+	List<User> getAllUser();
+
+	
+	void updateUser(User user);
 }

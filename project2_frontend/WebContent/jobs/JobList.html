@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<div class="container">
+  <h2>Job List</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Job Title</th>
+        <th>About Job</th>
+        <th>Qualification</th>
+        <th>Post date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="x in Jobs">
+    <td>{{ x.jobPrfl}}</td>
+    <td>{{ x.jobDescp }}</td>
+     <td>{{ x.qualification }}</td>
+      <td>{{ x.postDate }}</td>
+  </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>
+
+</body>
+</html>

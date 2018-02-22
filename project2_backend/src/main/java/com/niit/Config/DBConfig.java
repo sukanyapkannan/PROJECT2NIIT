@@ -16,6 +16,9 @@ import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.niit.Model.Blog;
+import com.niit.Model.Forum;
+import com.niit.Model.Jobs;
 import com.niit.Model.User;
 
 @Configuration
@@ -30,7 +33,9 @@ public class DBConfig
 	        sessionBuilder.setProperty("hibernate.show_sql", "true");
 	        sessionBuilder.addProperties(getHibernateProperties());
 	        sessionBuilder.addAnnotatedClass(User.class);
-	       
+	        sessionBuilder.addAnnotatedClass(Jobs.class);
+	        sessionBuilder.addAnnotatedClass(Blog.class);
+	        sessionBuilder.addAnnotatedClass(Forum.class);
 	        
 
 	        return sessionBuilder.buildSessionFactory();

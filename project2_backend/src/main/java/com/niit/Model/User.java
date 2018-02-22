@@ -13,6 +13,7 @@ public class User
 {
 	private static final long serialVersionUID = 1L;
 	@Id
+	private int userId;
 	private String username;
 	private String email;
 	private String password;
@@ -21,6 +22,13 @@ public class User
 	private String role;
 	private boolean isOnline;
 	private String status;
+	
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 	
 	public String getUsername() {
 		return username;

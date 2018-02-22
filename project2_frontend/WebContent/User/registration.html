@@ -23,7 +23,7 @@
 <style>
 
 body {
-	background: #999900;
+	background: url("./images/bg.jpg");
 	font-family: 'Open Sans', Arial, Helvetica, Sans-serif, Verdana, Tahoma;
 }
 
@@ -73,20 +73,31 @@ button {
 }
 </style>
 
+<div data-ng-controller="UserCtrl">
 
+<!-- <table class="table">
+  <tr ng-repeat="x in users">
+    <td>{{ x.username}}</td>
+    <td>{{ x.email }}</td>
+     <td>{{ x.address }}</td>
+      <td>{{ x.phone }}</td>
+  </tr>
+</table> -->
 <h2>Signup</h2>
 
-<form action="saveUser" style="border:1px solid #ccc" method="post">
+<form  style="border:1px solid #ccc" method="post">
   <div class="container">
+   <label><b>User Name</b></label>
+    <input type="text" placeholder="Enter name" name="username" ng-model="User.username" required>
     <label><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email" required>
+    <input type="text" placeholder="Enter Email" name="email" ng-model="User.email" required>
     <label><b>Residential Address</b></label>
-    <input type="text" placeholder="Enter Address" name="address" required>
+    <input type="text" placeholder="Enter Address" name="address" ng-model="User.address" required>
     <label><b>Contact Number</b></label>
-    <input type="text" placeholder="Enter Phone Number" name="phone" required>
+    <input type="text" placeholder="Enter Phone Number" name="phone" ng-model="User.phone" required>
 
     <label><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+    <input type="password" placeholder="Enter Password" name="psw" ng-model="User.password" required>
 
     <label><b>Repeat Password</b></label>
     <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
@@ -95,9 +106,11 @@ button {
 
     <div class="clearfix">
       <button type="button" class="cancelbtn">Cancel</button>
-      <button type="submit" class="signupbtn">Sign Up</button>
+      <button type="submit" ng-click="register()"class="signupbtn">Sign Up</button>
     </div>
   </div>
 </form>
+{{User}}
+</div>
 </body>
 </html>

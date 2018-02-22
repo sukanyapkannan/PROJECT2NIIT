@@ -1,6 +1,10 @@
 
 <style>
-.list-group {border-radius: 0;}
+body {
+	background: url("./images/bg.jpg");
+}
+
+.list-group {border-radius: 0;background-color:#ffffff;}
 .list-group .list-group-item {background-color: transparent;overflow: hidden;border: 0;border-radius: 0;padding: 0 16px;}
 .list-group .list-group-item .row-picture,
 .list-group .list-group-item .row-action-primary {float: left;display: inline-block;padding-right: 16px;padding-top: 8px;}
@@ -11,7 +15,7 @@
 .list-group .list-group-item .row-picture label,
 .list-group .list-group-item .row-action-primary label {display: block;width: 56px;height: 56px;}
 .list-group .list-group-item .row-picture img,
-.list-group .list-group-item .row-action-primary img {background: rgba(0, 0, 0, 0.1);padding: 1px;}
+.list-group .list-group-item .row-action-primary img {background: #999900;padding: 1px;}
 .list-group .list-group-item .row-picture img.circle,
 .list-group .list-group-item .row-action-primary img.circle {border-radius: 100%;}
 .list-group .list-group-item .row-picture i,
@@ -36,112 +40,45 @@
 .img-box{box-shadow: 0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius: 2px;border: 0;}
 
 </style>
+<div data-ng-controller="blogCtrl">
 <div class="container">
-	<div class="row">
+	<div class="row" ng-repeat="x in Blogs">
 		<div class="row"> 
                     <div class="col-xs-12 col-sm-3 col-md-3">
                         <a href="#">
                             <img src="http://wanderluxe.theluxenomad.com/wp-content/uploads/2014/10/http-www.urchinbali.comgallery.jpg" class="img-responsive img-box img-thumbnail"> 
                         </a>
                     </div> 
-                    <div class="col-xs-12 col-sm-9 col-md-9">
+                    <div class="col-xs-12 col-sm-9 col-md-9" >
                         <div class="list-group">
                             <div class="list-group-item">
-                                <div class="row-picture">
+                              <div class="row-picture">
                                     <a href="#" title="sintret">
                                         <img class="circle img-thumbnail img-box" src="http://sintret.com/img/andy.jpg" alt="sintret">
                                     </a>
-                                </div>
+                                </div> 
                                 <div class="row-content">
                                     <div class="list-group-item-heading">
-                                        <a href="#" title="sintret">
+                                        <!-- <a href="#" title="sintret">
                                             <small>sintret</small>
-                                        </a>
+                                        </a> -->
                                     </div>
                                     <small>
-                                        <i class="glyphicon glyphicon-time"></i> 3 days ago via <span class="twitter"> <i class="fa fa-twitter"></i> <a target="_blank" href="https://twitter.com/sintret" alt="sintret" title="sintret">@sintret</a></span>
+                                        <i class="glyphicon glyphicon-time"></i>{{x.createDate}}<span class="twitter"> <i class="fa fa-twitter"></i> <a target="_blank" href="https://twitter.com/sintret" alt="sintret" title="sintret">@sintret</a></span>
                                         <br>
-                                        <span class="explore"><i class="glyphicon glyphicon-th"></i> <a href="#">Explore 2 places </a></span>
+                                        <span class="explore"><i class="glyphicon glyphicon-th"></i> <a href="#">{{x.createDate}}</a></span>
                                     </small>
                                 </div>
                             </div>
                         </div>
-                        <h4><a href="#">5 of Bali’s Spanking New Haunts - WanderLuxe Magazine</a></h4>
-                        <p>Naturally, we know where Bali's newest restaurants are and what to order, so give that private chef a rest and check out these spanking new haunts.</p>
+                        <h4><a href="#">{{x.blogName}}</a></h4>
+                        <p>{{x.blogContent}}</p>
                     </div> 
                 </div>
                 <hr>
 
-                <div class="row"> 
-                    <div class="col-xs-12 col-sm-3 col-md-3">
-                        <a href="#">
-                            <img src="http://wanderluxe.theluxenomad.com/wp-content/uploads/2014/09/http-barbacoabali.com_.jpg" class="img-responsive img-box img-thumbnail"> 
-                        </a>
-                    </div> 
-                    <div class="col-xs-12 col-sm-9 col-md-9">
-                        <div class="list-group">
-                            <div class="list-group-item">
-                                <div class="row-picture">
-                                    <a href="#" title="sintret">
-                                        <img class="circle img-thumbnail img-box" src="http://sintret.com/img/andy.jpg" alt="sintret">
-                                    </a>
-                                </div>
-                                <div class="row-content">
-                                    <div class="list-group-item-heading">
-                                        <a href="#" title="sintret">
-                                            <small>sintret</small>
-                                        </a>
-                                    </div>
-                                    <small>
-                                        <i class="glyphicon glyphicon-time"></i> 1 month ago via <span class="twitter"> <i class="fa fa-twitter"></i> <a target="_blank" href="https://twitter.com/sintret" alt="sintret" title="sintret">@sintret</a></span>
-                                        <br>
-                                        <span class="explore"><i class="glyphicon glyphicon-th"></i> <a href="#">Explore 9 places </a></span>
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                        <h4><a href="#">Top 8 Best Bali Restaurants - WanderLuxe Magazine</a></h4>
-                        <p>We know that there’s tons to noms in Bali, but what’s the best and where are they? Here are our top 8 Seminyak Bali restaurants to visit.</p>
-                    </div> 
                 </div>
-                <hr>
-
-
-                <div class="row"> 
-                    <div class="col-xs-12 col-sm-3 col-md-3">
-                        <a href="#">
-                            <img src="http://i.huffpost.com/gen/2038950/thumbs/s-BANGKOK-NOODLES-large.jpg" class="img-responsive img-box img-thumbnail"> 
-                        </a>
-                    </div> 
-                    <div class="col-xs-12 col-sm-9 col-md-9">
-                        <div class="list-group">
-                            <div class="list-group-item">
-                                <div class="row-picture">
-                                    <a href="#" title="sintret">
-                                        <img class="circle img-thumbnail img-box" src="http://sintret.com/img/andy.jpg" alt="sintret">
-                                    </a>
-                                </div>
-                                <div class="row-content">
-                                    <div class="list-group-item-heading">
-                                        <a href="#" title="sintret">
-                                            <small>sintret</small>
-                                        </a>
-                                    </div>
-                                    <small>
-                                        <i class="glyphicon glyphicon-time"></i> 1 month ago via <span class="twitter"> <i class="fa fa-twitter"></i> <a target="_blank" href="https://twitter.com/sintret" alt="sintret" title="sintret">@sintret</a></span>
-                                        <br>
-                                        <span class="explore"><i class="glyphicon glyphicon-th"></i> <a href="#">Explore 9 places </a></span>
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                        <h4><a href="#">These Are The Best Noodle Spots In Bangkok</a></h4>
-                        <p>BANGKOK (AP) — With its fluorescent bulbs and cafeteria-style tables, the Bangkok restaurant Raan Jay Fai wouldn't win any awards for interior decorating.              But that hasn't deterred Martha Stewart, one of the restaurant's many fans...</p>
-                    </div> 
                 </div>
-                <hr>
-	</div>
-</div>
-
-
+                </div>
+                
 

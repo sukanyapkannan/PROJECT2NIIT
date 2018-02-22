@@ -1,0 +1,5 @@
+com\niit\project2_backend\AppTest.class
+com\niit\project2_backend\UserDAOTest.class
+com\niit\project2_backend\ForumDaoTest.class
+com\niit\project2_backend\JobDaotest.class
+com\niit\project2_backend\BlogDaoTest.class
