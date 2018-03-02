@@ -118,6 +118,12 @@ h3{margin-bottom:20px; font-weight:bold; color:#fff; text-shadow:1px 1px 0 rgba(
             <h4>Posted : {{ x.postDate }}</h4>
             <p class="card-text">{{ x.jobDescp }}</p>
             <a href="#" class="btn btn-default text-uppercase">Apply</a>
+            <a ng-click="fetchjobforedit(x.jobId)" href="#!jobupdate">
+          <span class="glyphicon glyphicon-pencil"></span>
+           <a ng-click="deletejob(x.jobId)">
+          <span class="glyphicon glyphicon-trash"></span>
+        </a>
+        </a>
           </div>
         </div>
         </div>

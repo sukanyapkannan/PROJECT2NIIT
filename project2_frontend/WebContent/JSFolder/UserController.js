@@ -1,8 +1,9 @@
-app.controller('UserCtrl', function($scope,$http) {
+app.controller('UserCtrl', function($scope,$http,$cookieStore,$rootScope,$location) {
 	
 	$scope.User={username:"","email":"","address":"","phone":"","password":"","status":"P","role":"ROLE_USER"};
     $scope.firstName = "John";
     $scope.lastName = "Doe";
+    $scope.UserById={};
     
     $scope.BASEURL="http://localhost:9090/project2_middleware/user/";
     $scope.register = function() {
@@ -27,19 +28,33 @@ app.controller('UserCtrl', function($scope,$http) {
  	$http.post( $scope.BASEURL+"login",$scope.User)
  	.then(function(response)
  			{
- 		      alert($scope.User.email+"login Successfully");
+ 		 $rootScope.currentuser=response.data;
+ 		 	if($rootScope.currentuser.errormessage!="login success")
+ 		 		{
+ 		 			alert($rootScope.currentuser.errormessage)
+ 		 		}
+ 		 	if($rootScope.currentuser.errormessage=="You are not yet approved by admin" || $rootScope.currentuser.errormessage=="You rejected please contact admin" || $rootScope.currentuser.errormessage=="You are not registered yet" || $rootScope.currentuser.errormessage=="email id or password incorrect")
+ 		 		{
+ 		 			$location.path("/login")
+ 		 		} 
+ 		 	else
+ 		 		{
+ 		 			$cookieStore.put('user', $rootScope.currentuser);
+ 		 			console.log("ROLE"+$rootScope.currentuser.role)
+ 		 			$location.path("/blog")
+ 		 		}
  			},
  			function(error)
- 			{
- 			 alert($scope.User.email+"login unSuccessfully");
- 			}
+ 				{
+ 					alert($scope.User.email+"login unSuccessfully");
+ 				}
  			)
  	
  };
 
  $scope.approveUser = function(id) {
 	 
-	 $http.post( $scope.BASEURL+"getUserById/"+id)
+	 $http.get( $scope.BASEURL+"getUserById/"+id)
 		.then(function(response)
 		{
 			console.log(response.data)
@@ -63,7 +78,7 @@ app.controller('UserCtrl', function($scope,$http) {
     	
     };
  $scope.rejectUser = function(id) {
-	 $http.post( $scope.BASEURL+"getUserById/"+id)
+	 $http.get( $scope.BASEURL+"getUserById/"+id)
 		.then(function(response)
 		{
 			console.log(response.data)
@@ -89,7 +104,7 @@ app.controller('UserCtrl', function($scope,$http) {
  $scope.updateUser = function() {
     	
 	    $scope.User['status']='A';
-    	$http.post( $scope.BASEURL+"update",$scope.User)
+    	$http.get( $scope.BASEURL+"update",$scope.User)
     	.then(function(response)
     			{
     		      alert($scope.User.email+"updated Successfully");

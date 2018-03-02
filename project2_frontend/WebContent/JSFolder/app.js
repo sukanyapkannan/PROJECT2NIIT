@@ -1,4 +1,4 @@
-var app = angular.module('myApp', ['ngRoute']);
+var app = angular.module('myApp', ['ngRoute','ngCookies']);
 
 app.config(function($routeProvider) {
     $routeProvider
@@ -31,6 +31,9 @@ app.config(function($routeProvider) {
     })
     .when("/jobForm", {
         templateUrl : "views/jobForm.html"
+    })
+     .when("/jobupdate", {
+        templateUrl : "jobs/jobUpdate.html"
     })
    
     .when("/forums", {

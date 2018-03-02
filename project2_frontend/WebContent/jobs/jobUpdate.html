@@ -61,18 +61,24 @@ button {
 <div data-ng-controller="jobCtrl">
 <h2>Update Job</h2>
 
-<form  style="border:1px solid #ccc" method="post">
+<form  style="border:1px solid #ccc" method="post" data-ng-submit="">
   <div class="container">
     <label><b>Job Profile</b></label>
-    <input type="text" placeholder="Enter job profile" name="jobProfile" ng-model="" required>
+    <input type="text" placeholder="Enter job profile" name="jobProfile" ng-model="Job.jobPrfl" data-ng-value="ejob.jobPrfl" data-ng-init="" required>
     <label><b>Job Description</b></label>
-    <input type="text" placeholder="Enter Job Description" name="jobDesc" ng-model="" required>
+    <input type="text" placeholder="Enter Job Description" name="jobDesc"   ng-model="Job.jobDescp" data-ng-value="ejob.jobDescp" data-ng-init=""required>
     <label><b>Qualification</b></label>
-    <input type="text" placeholder="Enter Qualification" name="qualification" ng-model="" required>
+    <input type="text" placeholder="Enter Qualification" name="qualification"   ng-model="Job.qualification" data-ng-value="ejob.qualification" data-ng-init=""required>
+    <label><b>Salary</b></label>
+    <input type="text" placeholder="Enter salary" name="salary" ng-model="Job.salary" data-ng-value="ejob.salary" data-ng-init="" required>
+    <label><b>Company</b></label>
+    <input type="text" placeholder="Enter company" name="company" ng-model="ejob.company" data-ng-value="ejob.company" data-ng-init=""required>
+    <label><b>About Company</b></label>
+    <input type="text" placeholder="Enter company Description" name="companyDesc" ng-model="ejob.companyDesc" data-ng-init=""required>
    
     <div class="clearfix">
       <button type="button" class="cancelbtn">Cancel</button>
-      <button type="submit" ng-click="saveJob()"class="signupbtn">Upload</button>
+      <button type="submit" ng-click="updateJob()" class="signupbtn">Upload</button>
     </div>
   </div>
 </form>

@@ -18,6 +18,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.niit.Model.Blog;
 import com.niit.Model.Forum;
+import com.niit.Model.Friend;
 import com.niit.Model.Jobs;
 import com.niit.Model.User;
 
@@ -36,6 +37,7 @@ public class DBConfig
 	        sessionBuilder.addAnnotatedClass(Jobs.class);
 	        sessionBuilder.addAnnotatedClass(Blog.class);
 	        sessionBuilder.addAnnotatedClass(Forum.class);
+	        sessionBuilder.addAnnotatedClass(Friend.class);
 	        
 
 	        return sessionBuilder.buildSessionFactory();

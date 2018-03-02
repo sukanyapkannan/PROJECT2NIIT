@@ -3,6 +3,7 @@ package com.niit.DaoImpl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -73,6 +74,38 @@ public class UserDaoImpl implements UserDao
 		Session k=sessionF.openSession();
 		User c=(User)k.get(User.class, id);
 		return c;
+		
+	}
+
+
+	public boolean checkLogin(User user)
+	{
+		try{
+			Session session=sessionF.openSession();
+		    Query query=session.createQuery("from Users where (email='"+user.getEmail()+"' and password='"+user.getPassword()+"') and (status='A')");
+			ArrayList<User> user1=(ArrayList<User>)query.list();
+			
+			if(user1.isEmpty())
+			{
+				return false;
+			}
+			else
+			{
+				return true;
+			}
+		   }
+		catch(Exception e)
+		{
+			return false;
+		}
+	}
+
+
+	public void updateOnlineStatus(User tempuser) 
+	{
+	
+			sessionF.getCurrentSession().saveOrUpdate(tempuser);
+			
 		
 	}
 }

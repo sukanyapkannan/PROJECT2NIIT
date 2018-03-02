@@ -2,9 +2,10 @@ package com.niit.project2_middleware;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.niit.Dao.UserDao;
-import com.niit.Model.Blog;
 import com.niit.Model.User;
 
 @RestController
@@ -65,7 +65,7 @@ public class UserController
 		 
 	 }*/
 	
-	 @RequestMapping(value="/getUserById/{userId}",method=RequestMethod.POST)
+	 @RequestMapping(value="/getUserById/{userId}",method=RequestMethod.GET)
 		public ResponseEntity<User>  getUserByName(@PathVariable("userId") int id )
 		{
 			User user=udao.getUser(id);
@@ -74,5 +74,72 @@ public class UserController
 			
 			return new ResponseEntity<User>(user,HttpStatus.OK);
 		}
+	 
+	 
+	 @RequestMapping(value="/login",method=RequestMethod.POST)
+		public ResponseEntity<User> login(@RequestBody User user,HttpSession http)
+	 
+	 {
+			if(udao.checkLogin(user))
+			{
+				 User tempuser=udao.getUser(user.getUserId());
+			
+			tempuser.setOnline(user.isOnline());
+				udao.updateOnlineStatus(tempuser);
+	tempuser.setErrorcode(200);
+	tempuser.setErrormessage("login success");
+			http.setAttribute("currentuser",tempuser);	
+			return new ResponseEntity<User>(tempuser,HttpStatus.OK);
+				
+				
+			}
+			else
+			{
+			User tempuser1=new User();
+			
+			if(udao.checkLogin(user))
+			{
+				User tempuser=udao.getUser(user.getUserId());
+				
+				if(tempuser.getStatus().equals("P"))
+				{
+			tempuser1.setErrorcode(200);
+			tempuser1.setErrormessage("You are not yet approved by admin");
+			return new ResponseEntity<User>(tempuser1,HttpStatus.OK);
+			}
+				else
+				{
+					tempuser1.setErrorcode(200);
+					tempuser1.setErrormessage("You rejected please contact admin");
+					return new ResponseEntity<User>(tempuser1,HttpStatus.OK);
+				}
+				
+				
+				
+			}
+			
+			else
+			{
+				if(udao.checkLogin(user))
+				
+				{
+						tempuser1.setErrorcode(200);
+						tempuser1.setErrormessage("email id or password incorrect");
+						return new ResponseEntity<User>(tempuser1,HttpStatus.OK);
+					}
+					else
+					{
+						tempuser1.setErrorcode(200);
+						tempuser1.setErrormessage("You are not registered yet");
+						return new ResponseEntity<User>(tempuser1,HttpStatus.OK);
+					}
+	
+			 }
+		     }
+			
+	}
+				
+				
+			
 
 }

@@ -15,4 +15,10 @@ public interface UserDao
 
 	
 	void updateUser(User user);
+
+	
+
+	boolean checkLogin(User user);
+
+	void updateOnlineStatus(User tempuser);
 }

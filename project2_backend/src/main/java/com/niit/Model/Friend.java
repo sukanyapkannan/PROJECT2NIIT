@@ -21,6 +21,21 @@ private static final long serialVersionUID=1L;
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int friendId;
 	private String status;
+	private String fromId;
+	private String toId;
+	
+	public String getFromId() {
+		return fromId;
+	}
+	public void setFromId(String fromId) {
+		this.fromId = fromId;
+	}
+	public String getToId() {
+		return toId;
+	}
+	public void setToId(String toId) {
+		this.toId = toId;
+	}
 	public int getFriendId() {
 		return friendId;
 	}

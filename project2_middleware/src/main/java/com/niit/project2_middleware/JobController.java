@@ -25,7 +25,7 @@ public class JobController {
 	@RequestMapping(value="/addJob",method=RequestMethod.POST)
 	public ResponseEntity<String> addJob(@RequestBody Jobs job)
 	{
-		job.setStatus("A");
+		job.setStatus("P");
 		 SimpleDateFormat sm = new SimpleDateFormat("mm-dd-yyyy");
 		   
 		    String postDate = sm.format(new Date());
@@ -39,27 +39,27 @@ public class JobController {
 		
 	}
 	
-	@RequestMapping(value="/deleteJob/{jobid}",method=RequestMethod.GET)
-	public String delete(@PathVariable("jobid") int id)
+	@RequestMapping(value="/deleteJob/{jobId}",method=RequestMethod.POST)
+	public String delete(@PathVariable("jobId") int id)
 	{
 		Jobs j=jdao.getjob(id);
 		jdao.deletejob(j);
 		
-		return "JOB deleteed Successfully"+j.toString();
+		return "JOB deleteed Successfully";
 		
 	}
-	@RequestMapping(value="/updateJob/{jobid}",method=RequestMethod.GET)
-	public String update(@PathVariable("jobid") int id)
+	@RequestMapping(value="/updateJob/{jobId}",method=RequestMethod.POST)
+	public String update(@PathVariable("jobId") int id)
 	{
 		Jobs j=jdao.getjob(id);
 		jdao.updatejob(j);
 		
-		return "JOB updated Successfully"+j.toString();
+		return "JOB updated Successfully";
 		
 	}
 	
-	@RequestMapping(value="/getJob/{jobid}",method=RequestMethod.GET,headers = "Accept=application/json")
-	public ResponseEntity<Jobs> getJob(@PathVariable("jobid") int jobId){
+	@RequestMapping(value="/getJob/{jobId}",method=RequestMethod.GET,headers = "Accept=application/json")
+	public ResponseEntity<Jobs> getJob(@PathVariable("jobId") int jobId){
 
 	System.out.println("In get job controller"+jobId);
 	if(jdao.getjob(jobId)==null){

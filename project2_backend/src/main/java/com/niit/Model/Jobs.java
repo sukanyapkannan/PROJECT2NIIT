@@ -24,6 +24,9 @@ private static final long serialVersionUID=1L;
 	private String jobPrfl;
 	private String jobDescp;
 	private String qualification;
+	private int salary;
+	private String company;
+	private String companyDesc;
 	private String status;
 	private String postDate;
 	public int getJobId() {
@@ -61,6 +64,26 @@ private static final long serialVersionUID=1L;
 	}
 	public void setPostDate(String postDate) {
 		this.postDate = postDate;
+	}
+	
+	
+	public int getSalary() {
+		return salary;
+	}
+	public void setSalary(int salary) {
+		this.salary = salary;
+	}
+	public String getCompany() {
+		return company;
+	}
+	public void setCompany(String company) {
+		this.company = company;
+	}
+	public String getCompanyDesc() {
+		return companyDesc;
+	}
+	public void setCompanyDesc(String companyDesc) {
+		this.companyDesc = companyDesc;
 	}
 	@Override
 	public String toString() {
