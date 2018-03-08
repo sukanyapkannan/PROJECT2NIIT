@@ -21,4 +21,5 @@ public interface UserDao
 	boolean checkLogin(User user);
 
 	void updateOnlineStatus(User tempuser);
+	public User getUserbyemail(String email);
 }

@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Table
 @Entity
 @Component
-public class User 
+public class User  extends ErrorMessages
 {
 	private static final long serialVersionUID = 1L;
 	@Id
@@ -81,13 +81,12 @@ public class User
 	public void setRole(String role) {
 		this.role = role;
 	}
-	public void setErrorcode(int i) {
-		// TODO Auto-generated method stub
-		
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", username=" + username + ", email=" + email + ", password=" + password
+				+ ", Address=" + Address + ", phone=" + phone + ", role=" + role + ", isOnline=" + isOnline
+				+ ", status=" + status + "]";
 	}
-	public void setErrormessage(String string) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 	
 }

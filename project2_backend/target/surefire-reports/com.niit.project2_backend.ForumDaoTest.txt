@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.niit.project2_backend.ForumDaoTest
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 5, Time elapsed: 1.356 sec
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 5, Time elapsed: 0.577 sec

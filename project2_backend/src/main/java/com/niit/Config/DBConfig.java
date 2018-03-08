@@ -21,6 +21,7 @@ import com.niit.Model.Forum;
 import com.niit.Model.Friend;
 import com.niit.Model.Jobs;
 import com.niit.Model.User;
+import com.niit.Model.notification;
 
 @Configuration
 @ComponentScan("com.niit")
@@ -38,6 +39,7 @@ public class DBConfig
 	        sessionBuilder.addAnnotatedClass(Blog.class);
 	        sessionBuilder.addAnnotatedClass(Forum.class);
 	        sessionBuilder.addAnnotatedClass(Friend.class);
+	        sessionBuilder.addAnnotatedClass(notification.class);
 	        
 
 	        return sessionBuilder.buildSessionFactory();

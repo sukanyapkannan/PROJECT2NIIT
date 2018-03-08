@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="5" failures="0" name="com.niit.project2_backend.BlogDaoTest" time="19.127" errors="0" skipped="4">
+<testsuite tests="5" failures="0" name="com.niit.project2_backend.BlogDaoTest" time="10.086" errors="0" skipped="4">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_131\jre\bin"/>
@@ -27,7 +27,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 10"/>
-    <property name="classworlds.conf" value="C:\Users\user\workspace\project 2\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf8011566380199647231.tmp"/>
+    <property name="classworlds.conf" value="C:\Users\user\workspace\project 2\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf3113930722064590666.tmp"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
     <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_131\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Program Files/Java/jre1.8.0_131/bin/server;C:/Program Files/Java/jre1.8.0_131/bin;C:/Program Files/Java/jre1.8.0_131/lib/amd64;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;F:\Program Files\MATLAB\R2013a\runtime\win64;F:\Program Files\MATLAB\R2013a\bin;C:\Program Files (x86)\Skype\Phone\;C:\Users\user\AppData\Local\Microsoft\WindowsApps;;C:\Users\user\Desktop;;."/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
@@ -61,86 +61,94 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.niit.project2_backend.BlogDaoTest" name="getBlog" time="7.057">
+  <testcase classname="com.niit.project2_backend.BlogDaoTest" name="getBlog" time="2.472">
     <skipped/>
-    <system-err>Mar 02, 2018 12:30:38 PM org.springframework.context.annotation.AnnotationConfigApplicationContext prepareRefresh
-INFO: Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@5679c6c6: startup date [Fri Mar 02 12:30:38 IST 2018]; root of context hierarchy
-Mar 02, 2018 12:30:39 PM org.springframework.jdbc.datasource.DriverManagerDataSource setDriverClassName
+    <system-err>Mar 08, 2018 9:38:13 AM org.springframework.context.annotation.AnnotationConfigApplicationContext prepareRefresh
+INFO: Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@5679c6c6: startup date [Thu Mar 08 09:38:13 IST 2018]; root of context hierarchy
+Mar 08, 2018 9:38:13 AM org.springframework.jdbc.datasource.DriverManagerDataSource setDriverClassName
 INFO: Loaded JDBC driver: org.h2.Driver
-Mar 02, 2018 12:30:39 PM org.hibernate.annotations.common.reflection.java.JavaReflectionManager &lt;clinit&gt;
+Mar 08, 2018 9:38:14 AM org.hibernate.annotations.common.reflection.java.JavaReflectionManager &lt;clinit&gt;
 INFO: HCANN000001: Hibernate Commons Annotations {4.0.5.Final}
-Mar 02, 2018 12:30:39 PM org.hibernate.Version logVersion
+Mar 08, 2018 9:38:14 AM org.hibernate.Version logVersion
 INFO: HHH000412: Hibernate Core {4.3.9.Final}
-Mar 02, 2018 12:30:39 PM org.hibernate.cfg.Environment &lt;clinit&gt;
+Mar 08, 2018 9:38:14 AM org.hibernate.cfg.Environment &lt;clinit&gt;
 INFO: HHH000206: hibernate.properties not found
-Mar 02, 2018 12:30:39 PM org.hibernate.cfg.Environment buildBytecodeProvider
+Mar 08, 2018 9:38:14 AM org.hibernate.cfg.Environment buildBytecodeProvider
 INFO: HHH000021: Bytecode provider name : javassist
-Mar 02, 2018 12:30:42 PM org.hibernate.dialect.Dialect &lt;init&gt;
+Mar 08, 2018 9:38:14 AM org.hibernate.dialect.Dialect &lt;init&gt;
 INFO: HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-Mar 02, 2018 12:30:42 PM org.hibernate.engine.transaction.internal.TransactionFactoryInitiator initiateService
+Mar 08, 2018 9:38:14 AM org.hibernate.engine.transaction.internal.TransactionFactoryInitiator initiateService
 INFO: HHH000399: Using default transaction strategy (direct JDBC transactions)
-Mar 02, 2018 12:30:42 PM org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory &lt;init&gt;
+Mar 08, 2018 9:38:14 AM org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory &lt;init&gt;
 INFO: HHH000397: Using ASTQueryTranslatorFactory
-Mar 02, 2018 12:30:43 PM org.hibernate.tool.hbm2ddl.SchemaUpdate execute
+Mar 08, 2018 9:38:14 AM org.hibernate.tool.hbm2ddl.SchemaUpdate execute
 INFO: HHH000228: Running hbm2ddl schema update
-Mar 02, 2018 12:30:43 PM org.hibernate.tool.hbm2ddl.SchemaUpdate execute
+Mar 08, 2018 9:38:14 AM org.hibernate.tool.hbm2ddl.SchemaUpdate execute
 INFO: HHH000102: Fetching database metadata
-Mar 02, 2018 12:30:43 PM org.hibernate.tool.hbm2ddl.SchemaUpdate execute
+Mar 08, 2018 9:38:14 AM org.hibernate.tool.hbm2ddl.SchemaUpdate execute
 INFO: HHH000396: Updating schema
-Mar 02, 2018 12:30:43 PM org.hibernate.tool.hbm2ddl.TableMetadata &lt;init&gt;
+Mar 08, 2018 9:38:14 AM org.hibernate.tool.hbm2ddl.TableMetadata &lt;init&gt;
 INFO: HHH000261: Table found: PROJECT2.PUBLIC.BLOG
-Mar 02, 2018 12:30:43 PM org.hibernate.tool.hbm2ddl.TableMetadata &lt;init&gt;
+Mar 08, 2018 9:38:14 AM org.hibernate.tool.hbm2ddl.TableMetadata &lt;init&gt;
 INFO: HHH000037: Columns: [blogname, blogcontent, createdate, blogid, likes, status]
-Mar 02, 2018 12:30:43 PM org.hibernate.tool.hbm2ddl.TableMetadata &lt;init&gt;
+Mar 08, 2018 9:38:14 AM org.hibernate.tool.hbm2ddl.TableMetadata &lt;init&gt;
 INFO: HHH000108: Foreign keys: []
-Mar 02, 2018 12:30:43 PM org.hibernate.tool.hbm2ddl.TableMetadata &lt;init&gt;
+Mar 08, 2018 9:38:14 AM org.hibernate.tool.hbm2ddl.TableMetadata &lt;init&gt;
 INFO: HHH000126: Indexes: [primary_key_1]
-Mar 02, 2018 12:30:43 PM org.hibernate.tool.hbm2ddl.TableMetadata &lt;init&gt;
+Mar 08, 2018 9:38:14 AM org.hibernate.tool.hbm2ddl.TableMetadata &lt;init&gt;
 INFO: HHH000261: Table found: PROJECT2.PUBLIC.FORUM
-Mar 02, 2018 12:30:43 PM org.hibernate.tool.hbm2ddl.TableMetadata &lt;init&gt;
+Mar 08, 2018 9:38:14 AM org.hibernate.tool.hbm2ddl.TableMetadata &lt;init&gt;
 INFO: HHH000037: Columns: [createdate, forumcontent, forumname, forumid, status]
-Mar 02, 2018 12:30:43 PM org.hibernate.tool.hbm2ddl.TableMetadata &lt;init&gt;
+Mar 08, 2018 9:38:14 AM org.hibernate.tool.hbm2ddl.TableMetadata &lt;init&gt;
 INFO: HHH000108: Foreign keys: []
-Mar 02, 2018 12:30:43 PM org.hibernate.tool.hbm2ddl.TableMetadata &lt;init&gt;
+Mar 08, 2018 9:38:14 AM org.hibernate.tool.hbm2ddl.TableMetadata &lt;init&gt;
 INFO: HHH000126: Indexes: [primary_key_3]
-Mar 02, 2018 12:30:43 PM org.hibernate.tool.hbm2ddl.TableMetadata &lt;init&gt;
+Mar 08, 2018 9:38:14 AM org.hibernate.tool.hbm2ddl.TableMetadata &lt;init&gt;
 INFO: HHH000261: Table found: PROJECT2.PUBLIC.FRIEND
-Mar 02, 2018 12:30:43 PM org.hibernate.tool.hbm2ddl.TableMetadata &lt;init&gt;
+Mar 08, 2018 9:38:14 AM org.hibernate.tool.hbm2ddl.TableMetadata &lt;init&gt;
 INFO: HHH000037: Columns: [toid, friendid, fromid, status]
-Mar 02, 2018 12:30:43 PM org.hibernate.tool.hbm2ddl.TableMetadata &lt;init&gt;
+Mar 08, 2018 9:38:14 AM org.hibernate.tool.hbm2ddl.TableMetadata &lt;init&gt;
 INFO: HHH000108: Foreign keys: []
-Mar 02, 2018 12:30:43 PM org.hibernate.tool.hbm2ddl.TableMetadata &lt;init&gt;
+Mar 08, 2018 9:38:14 AM org.hibernate.tool.hbm2ddl.TableMetadata &lt;init&gt;
 INFO: HHH000126: Indexes: [primary_key_7]
-Mar 02, 2018 12:30:43 PM org.hibernate.tool.hbm2ddl.TableMetadata &lt;init&gt;
+Mar 08, 2018 9:38:14 AM org.hibernate.tool.hbm2ddl.TableMetadata &lt;init&gt;
 INFO: HHH000261: Table found: PROJECT2.PUBLIC.JOBS
-Mar 02, 2018 12:30:43 PM org.hibernate.tool.hbm2ddl.TableMetadata &lt;init&gt;
+Mar 08, 2018 9:38:14 AM org.hibernate.tool.hbm2ddl.TableMetadata &lt;init&gt;
 INFO: HHH000037: Columns: [jobid, qualification, companydesc, postdate, company, salary, jobprfl, jobdescp, status]
-Mar 02, 2018 12:30:43 PM org.hibernate.tool.hbm2ddl.TableMetadata &lt;init&gt;
+Mar 08, 2018 9:38:14 AM org.hibernate.tool.hbm2ddl.TableMetadata &lt;init&gt;
 INFO: HHH000108: Foreign keys: []
-Mar 02, 2018 12:30:43 PM org.hibernate.tool.hbm2ddl.TableMetadata &lt;init&gt;
+Mar 08, 2018 9:38:14 AM org.hibernate.tool.hbm2ddl.TableMetadata &lt;init&gt;
 INFO: HHH000126: Indexes: [primary_key_22]
-Mar 02, 2018 12:30:44 PM org.hibernate.tool.hbm2ddl.TableMetadata &lt;init&gt;
+Mar 08, 2018 9:38:15 AM org.hibernate.tool.hbm2ddl.TableMetadata &lt;init&gt;
 INFO: HHH000261: Table found: PROJECT2.PUBLIC.USER
-Mar 02, 2018 12:30:44 PM org.hibernate.tool.hbm2ddl.TableMetadata &lt;init&gt;
+Mar 08, 2018 9:38:15 AM org.hibernate.tool.hbm2ddl.TableMetadata &lt;init&gt;
 INFO: HHH000037: Columns: [password, address, role, phone, userid, email, isonline, status, username]
-Mar 02, 2018 12:30:44 PM org.hibernate.tool.hbm2ddl.TableMetadata &lt;init&gt;
+Mar 08, 2018 9:38:15 AM org.hibernate.tool.hbm2ddl.TableMetadata &lt;init&gt;
 INFO: HHH000108: Foreign keys: []
-Mar 02, 2018 12:30:44 PM org.hibernate.tool.hbm2ddl.TableMetadata &lt;init&gt;
+Mar 08, 2018 9:38:15 AM org.hibernate.tool.hbm2ddl.TableMetadata &lt;init&gt;
 INFO: HHH000126: Indexes: [primary_key_2]
-Mar 02, 2018 12:30:44 PM org.hibernate.tool.hbm2ddl.SchemaUpdate execute
+Mar 08, 2018 9:38:15 AM org.hibernate.tool.hbm2ddl.TableMetadata &lt;init&gt;
+INFO: HHH000261: Table found: PROJECT2.PUBLIC.NOTIFICATION
+Mar 08, 2018 9:38:15 AM org.hibernate.tool.hbm2ddl.TableMetadata &lt;init&gt;
+INFO: HHH000037: Columns: [noti, notid]
+Mar 08, 2018 9:38:15 AM org.hibernate.tool.hbm2ddl.TableMetadata &lt;init&gt;
+INFO: HHH000108: Foreign keys: []
+Mar 08, 2018 9:38:15 AM org.hibernate.tool.hbm2ddl.TableMetadata &lt;init&gt;
+INFO: HHH000126: Indexes: [primary_key_a]
+Mar 08, 2018 9:38:15 AM org.hibernate.tool.hbm2ddl.SchemaUpdate execute
 INFO: HHH000232: Schema update complete
-Mar 02, 2018 12:30:44 PM org.springframework.orm.hibernate4.HibernateTransactionManager afterPropertiesSet
-INFO: Using DataSource [org.springframework.jdbc.datasource.DriverManagerDataSource@5c33f1a9] of Hibernate SessionFactory for HibernateTransactionManager
+Mar 08, 2018 9:38:15 AM org.springframework.orm.hibernate4.HibernateTransactionManager afterPropertiesSet
+INFO: Using DataSource [org.springframework.jdbc.datasource.DriverManagerDataSource@18078bef] of Hibernate SessionFactory for HibernateTransactionManager
 </system-err>
   </testcase>
-  <testcase classname="com.niit.project2_backend.BlogDaoTest" name="getAllBlogs" time="7.057">
+  <testcase classname="com.niit.project2_backend.BlogDaoTest" name="deleteBlog" time="2.473">
     <skipped/>
   </testcase>
-  <testcase classname="com.niit.project2_backend.BlogDaoTest" name="addBlog" time="1.671"/>
-  <testcase classname="com.niit.project2_backend.BlogDaoTest" name="updateBlog" time="1.671">
+  <testcase classname="com.niit.project2_backend.BlogDaoTest" name="getAllBlogs" time="2.473">
     <skipped/>
   </testcase>
-  <testcase classname="com.niit.project2_backend.BlogDaoTest" name="deleteBlog" time="1.671">
+  <testcase classname="com.niit.project2_backend.BlogDaoTest" name="updateBlog" time="2.473">
     <skipped/>
   </testcase>
+  <testcase classname="com.niit.project2_backend.BlogDaoTest" name="addBlog" time="0.195"/>
 </testsuite>

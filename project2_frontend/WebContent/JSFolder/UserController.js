@@ -24,25 +24,39 @@ app.controller('UserCtrl', function($scope,$http,$cookieStore,$rootScope,$locati
   
     $scope.login = function() {
     	
- 	   $scope.User['status']='A';
+    	console.log($scope.User);
  	$http.post( $scope.BASEURL+"login",$scope.User)
  	.then(function(response)
  			{
- 		 $rootScope.currentuser=response.data;
- 		 	if($rootScope.currentuser.errormessage!="login success")
+ 		 $rootScope.tempuser=response.data;
+ 		 console.log("user"+ $rootScope.tempuser);
+ 		 	if($rootScope.tempuser.errormessage!="login success")
  		 		{
- 		 			alert($rootScope.currentuser.errormessage)
+ 		 			alert($rootScope.tempuser.errormessage)
  		 		}
- 		 	if($rootScope.currentuser.errormessage=="You are not yet approved by admin" || $rootScope.currentuser.errormessage=="You rejected please contact admin" || $rootScope.currentuser.errormessage=="You are not registered yet" || $rootScope.currentuser.errormessage=="email id or password incorrect")
- 		 		{
- 		 			$location.path("/login")
- 		 		} 
  		 	else
  		 		{
+ 		 		  if($rootScope.tempuser.status=='A')
+ 		 			  {
+ 		 			$rootScope.currentuser=$rootScope.tempuser;
  		 			$cookieStore.put('user', $rootScope.currentuser);
  		 			console.log("ROLE"+$rootScope.currentuser.role)
- 		 			$location.path("/blog")
+ 		 			$location.path("/blog");
+ 		 			  
+ 		 			  }
+ 		 		  else if($rootScope.tempuser.status=='P')
+ 		 			  {
+ 		 			    alert("You are not yet approved by admin")
+ 		 			    $location.path("/login")
+ 		 			  }
+ 		 		  else
+ 		 			  {
+ 		 			 alert("You Rejected by admin")
+ 		 			 $location.path("/login")
+ 		 			  }
+ 		 		
  		 		}
+ 		 	
  			},
  			function(error)
  				{
@@ -131,10 +145,26 @@ $scope.getAllUser = function() {
 			{
 			 alert("error");
 			}
-			)
-	
-};
-
+			);
+}
 $scope.getAllUser();
 
-});
+
+		 $scope.logout=function()
+		 {
+		 
+			 console.log( $rootScope.currentuser.email)
+				$http.get($scope.BASEURL+"logout/"+$rootScope.currentuser.email)
+					.then(function(response)
+					{
+						 $rootScope.currentuser={};
+						 $cookieStore.remove('user');
+					
+						 $location.path("/login")
+						
+					},function(error)
+					{
+						
+					});
+		 }
+	});

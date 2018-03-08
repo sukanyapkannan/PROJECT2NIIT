@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 @Table
 @Entity
 @Component
-public class Blog implements Serializable
+public class Blog extends ErrorMessages implements Serializable
 {
 private static final long serialVersionUID=1L;
 	

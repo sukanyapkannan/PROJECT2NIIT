@@ -66,7 +66,7 @@ public class UserController
 	 }*/
 	
 	 @RequestMapping(value="/getUserById/{userId}",method=RequestMethod.GET)
-		public ResponseEntity<User>  getUserByName(@PathVariable("userId") int id )
+		public ResponseEntity<User>  getUserById(@PathVariable("userId") int id )
 		{
 			User user=udao.getUser(id);
 			
@@ -80,11 +80,12 @@ public class UserController
 		public ResponseEntity<User> login(@RequestBody User user,HttpSession http)
 	 
 	 {
+		 System.out.println(user.getEmail());
 			if(udao.checkLogin(user))
 			{
-				 User tempuser=udao.getUser(user.getUserId());
+				 User tempuser=udao.getUserbyemail(user.getEmail());
 			
-			tempuser.setOnline(user.isOnline());
+			tempuser.setOnline(true);
 				udao.updateOnlineStatus(tempuser);
 	tempuser.setErrorcode(200);
 	tempuser.setErrormessage("login success");
@@ -95,7 +96,13 @@ public class UserController
 			}
 			else
 			{
-			User tempuser1=new User();
+				User tempuser1=new User();
+				tempuser1.setErrorcode(200);
+				tempuser1.setErrormessage("Invalid User or Password");
+							
+						return new ResponseEntity<User>(tempuser1,HttpStatus.OK);
+				
+			/*User tempuser1=new User();
 			
 			if(udao.checkLogin(user))
 			{
@@ -134,12 +141,23 @@ public class UserController
 						return new ResponseEntity<User>(tempuser1,HttpStatus.OK);
 					}
 	
-			 }
+			 }*/
 		     }
 			
 	}
-				
-				
+	 
+	 @RequestMapping(value="/logout/{email}",method=RequestMethod.GET)
+		public ResponseEntity<String> logout(@PathVariable("email") String email){
+		 System.out.println(email);
+		 
+	 String emaill=email+".com";
+System.out.println(emaill);
+	 
+User tempuser=udao.getUserbyemail(emaill);
+		 tempuser.setOnline(false);
+		udao.updateOnlineStatus(tempuser);
+		return new ResponseEntity<String>("Logout success",HttpStatus.OK);		 
+}
 			
 
 }

@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.niit.project2_backend.BlogDaoTest
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 4, Time elapsed: 8.728 sec
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 4, Time elapsed: 2.668 sec

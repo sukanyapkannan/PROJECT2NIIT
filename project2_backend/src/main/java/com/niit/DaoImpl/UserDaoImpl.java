@@ -3,6 +3,8 @@ package com.niit.DaoImpl;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -82,7 +84,7 @@ public class UserDaoImpl implements UserDao
 	{
 		try{
 			Session session=sessionF.openSession();
-		    Query query=session.createQuery("from Users where (email='"+user.getEmail()+"' and password='"+user.getPassword()+"') and (status='A')");
+		    Query query=session.createQuery("from User where (email='"+user.getEmail()+"' and password='"+user.getPassword()+"') ");
 			ArrayList<User> user1=(ArrayList<User>)query.list();
 			
 			if(user1.isEmpty())
@@ -100,12 +102,24 @@ public class UserDaoImpl implements UserDao
 		}
 	}
 
-
+@Transactional
 	public void updateOnlineStatus(User tempuser) 
 	{
 	
 			sessionF.getCurrentSession().saveOrUpdate(tempuser);
 			
 		
+	}
+
+
+	public User getUserbyemail(String email)
+	{
+		User user=new User();
+		
+		Session session= sessionF.openSession();
+		Query query=session.createQuery("from User where email='"+email+"'");
+		 user=(User)query.list().get(0);
+		session.close();
+		return user;
 	}
 }

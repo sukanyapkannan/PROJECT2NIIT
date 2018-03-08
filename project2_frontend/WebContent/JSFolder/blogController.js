@@ -1,4 +1,4 @@
-app.controller('blogCtrl', function($scope,$http) {
+app.controller('blogCtrl', function($scope,$http,$rootScope) {
 	
 	$scope.Blog={};
 	$scope.BlogById={}

@@ -86,11 +86,11 @@ span.psw {
   <div data-ng-controller="UserCtrl">
 
   <div class="container">
-    <label><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
+    <label><b>mail id</b></label>
+    <input type="text" placeholder="Enter email id" name="email" ng-model="User.email"required>
 
     <label><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+    <input type="password" placeholder="Enter Password" name="psw" ng-model="User.password"required>
         
     <button ng-click="login()" type="submit">Login</button>
     <input type="checkbox" checked="checked"> Remember me

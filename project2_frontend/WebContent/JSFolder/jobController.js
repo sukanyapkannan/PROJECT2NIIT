@@ -1,4 +1,4 @@
-app.controller('jobCtrl', function($scope,$http,$rootScope) {
+app.controller('jobCtrl', function($scope,$http,$rootScope,$location) {
 	
 	$scope.Job={};
 
@@ -51,54 +51,32 @@ app.controller('jobCtrl', function($scope,$http,$rootScope) {
 			  $location.path('/jobupdate')
 		  }
 		 
-		  
-		  
-		  
-		  
-			       
-			       $scope.updateJob = function(jobId)
-			       {
-			    	   
-			    	   
-			    	   console.log("jobid :"+jobId)
-			    	   
-			    	   
+		   
+	     $scope.updateJob = function(jobId)
+		 {
+			    	   console.log("jobid :"+jobId)    	   
 	    if($scope.Job.jobPrfl==null)
 		{
-		
 		$scope.Job.jobPrfl=$rootScope.ejob.jobPrfl;
 			}
-		
 		if($scope.Job.jobDescp==null)
 		{
-		
 		$scope.Job.jobPrfl=$rootScope.ejob.jobDescp;
 			}
-		
-		
 		if($scope.Job.qualification==null)
-		{
-		
+		{	
 		$scope.Job.jobPrfl=$rootScope.ejob.qualification;
-			}
-		
-		
+			}		
 		if($scope.Job.salary==null)
 		{
-		
 		$scope.Job.jobPrfl=$rootScope.ejob.salary;
 			}
-		
-		
 		if($scope.Job.company==null)
 		{
-		
 		$scope.Job.jobPrfl=$rootScope.ejob.company;
-			}
-		
+			}	
 		if($scope.Job.companyDesc==null)
 		{
-		
 		$scope.Job.jobPrfl=$rootScope.ejob.companyDesc;
 			}
 			    	   
