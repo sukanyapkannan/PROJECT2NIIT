@@ -20,6 +20,7 @@ public class notification implements Serializable
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int notId;
 	private String noti;
+	private String userName;
 	public int getNotId() {
 		return notId;
 	}
@@ -32,6 +33,13 @@ public class notification implements Serializable
 	public void setNoti(String noti) {
 		this.noti = noti;
 	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	
 	
 	
 }

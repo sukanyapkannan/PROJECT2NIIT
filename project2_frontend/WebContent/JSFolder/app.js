@@ -17,11 +17,20 @@ app.config(function($routeProvider) {
     .when("/blog", {
         templateUrl : "User/blog.html"
     })
+    .when("/blogUpdate", {
+        templateUrl : "Blog/blogUpdate.html"
+    })
     .when("/blogForm", {
         templateUrl : "Blog/blogForm.html"
     })
      .when("/blogValidn", {
         templateUrl : "Blog/BlogValidation.html"
+    })
+    .when("/myblogs", {
+        templateUrl : "User/MyBlogs.html"
+    })
+     .when("/blogpostdetail", {
+        templateUrl : "Blog/BlogPostDetail.html"
     })
      .when("/userList", {
         templateUrl : "views/UserList.html"
@@ -38,8 +47,15 @@ app.config(function($routeProvider) {
     .when("/notifications", {
         templateUrl : "notifications/Notifications.html"
     })
+    .when("/usersearch", {
+        templateUrl : "friend/UsersList.html"
+    })
+    .when("/UserRequest", {
+        templateUrl : "friend/UserRequest.html"
+    })
    
-    .when("/forums", {
+    .when("/forums", 
+    		{
         templateUrl : "User/Forums.html"
     });
 });
@@ -51,7 +67,7 @@ app.run( function ($rootScope, $location, $cookieStore, $http)
 					 {
 						 console.log("$locationChangeStart")
 						    
-						 var userPages = ['/noti','/profile','/blog','/job'];
+						 var userPages = ['/noti','/profile','/blog','job','/blogUpdate','/myblogs'];
 				 var adminPages = ['/blogValidn','/userList','jobForm','jobupdate'];
 						 
 						 var currentPage = $location.path();
@@ -80,7 +96,8 @@ app.run( function ($rootScope, $location, $cookieStore, $http)
 					        	{
 					        	
 								 var role = $rootScope.currentuser.role;
-								 if(isAdminPage!=-1 && role!='ROLE_ADMIN' )
+								
+								 if(isAdminPage!=-1 && role!='ROLE_ADMIN')
 									 {
 									  alert("You cannot view this page as a " + role )
 									  $location.path('/blog');
@@ -98,10 +115,10 @@ app.run( function ($rootScope, $location, $cookieStore, $http)
 				    }
 				    
 				    // to keep the blog view in after page refresh
-				    $rootScope.blog = $cookieStore.get('blog') || {};
-				    if ($rootScope.blog)
+				    $rootScope.eblog = $cookieStore.get('blog') || {};
+				    if ($rootScope.eblog)
 				    {
-				        $http.defaults.headers.common['Authorization'] = 'Basic' + $rootScope.blog; 
+				        $http.defaults.headers.common['Authorization'] = 'Basic' + $rootScope.eblog; 
 				    }
 				    
 				    // to keep the job view  in after page refresh
@@ -109,6 +126,11 @@ app.run( function ($rootScope, $location, $cookieStore, $http)
 				    if (	$rootScope.job)
 				    {
 				        $http.defaults.headers.common['Authorization'] = 'Basic' + 	$rootScope.job; 
+				    }
+				    $rootScope.gblogcomm = $cookieStore.get('blogcom') || {};
+				    if ($rootScope.gblogcomm)
+				    {
+				        $http.defaults.headers.common['Authorization'] = 'Basic' + 	$rootScope.gblogcomm; 
 				    }
 				    
 		});

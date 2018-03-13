@@ -1,4 +1,4 @@
-<!-- <h1>LATEST NOTIFICATIONS</h1>
+ <h1>LATEST NOTIFICATIONS</h1>
 <div data-ng-controller="notificationcontroller">
 
 <div class="card card-1" style="margin-top:25px;margin-right: 25px;margin-left: 25px">
@@ -12,13 +12,13 @@
 
  <table>
         <tbody>
-          <tr  data-ng-repeat="nottt in notific">
-            <td><h3>{{nottt.name}}</h3></td>
-            <td>  <div class="btn-group"> <a data-ng-click="deletenoti(nottt.notid)"  class="btn btn-primary">SEEN</a></div> </td>
+          <tr  data-ng-repeat="x in notific">
+            <td><h3>{{x.noti}}</h3></td>
+            <td>  <div class="btn-group"> <a data-ng-click="deletenoti(x.notId)"  class="btn btn-primary">SEEN</a></div> </td>
         
           </tr>
         </tbody>
       </table>
       </div>
  </div>
-</div> -->
+</div>

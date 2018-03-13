@@ -1,0 +1,77 @@
+<div data-ng-controller="blogCtrl">
+<div class="container" >
+	<div class="row" >
+		<div class="row"> 
+                    <div class="col-xs-12 col-sm-3 col-md-3">
+                        <a href="#">
+                            <img src="http://wanderluxe.theluxenomad.com/wp-content/uploads/2014/10/http-www.urchinbali.comgallery.jpg" class="img-responsive img-box img-thumbnail"> 
+                        </a>
+                    </div> 
+                    <div class="col-xs-12 col-sm-9 col-md-9" >
+                        <div class="list-group">
+                            <div class="list-group-item">
+                              <div class="row-picture">
+                                    <a href="#" title="sintret">
+                                        <img class="circle img-thumbnail img-box" src="http://sintret.com/img/andy.jpg" alt="sintret">
+                                    </a>
+                                </div> 
+                                <div class="row-content">
+                                    <div class="list-group-item-heading">
+                                        <a href="#" title="sintret">
+                                            <small>{{eblog.username}}</small>
+                                        </a> 
+                                    </div>
+                                    <small>
+                                        <i class="glyphicon glyphicon-time"></i>{{eblog.createDate}}<span class="twitter"> <i class="fa fa-twitter"></i> <a target="_blank" href="https://twitter.com/sintret" alt="sintret" title="sintret">@{{eblog.username}}</a></span>
+                                        <br>
+                                        <span class="explore"><i class="glyphicon glyphicon-th"></i> <a href="#">{{eblog.createDate}}</a></span>
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <h4><a>{{eblog.blogName}}</a></h4>
+                        <p>{{eblog.blogContent}}</p>
+                        
+                    </div> 
+                </div>
+                <hr>
+
+                </div>
+                </div>
+                 
+  <!-- the comment box -->
+                <div class="container"  >
+                    
+                    <form role="form" data-ng-submit="addBlogComment(eblog.blogId)">
+                        <div class="form-group">
+                            <textarea class="form-control" rows="3" data-ng-model="BlogComment.cmnt" placeholder="Leave a Comment here..."></textarea>
+                        </div>
+                         <button class="btn btn-large waves-effect waves-light" type="submit" data-ng-submit="addBlogComment(eblog.blogId)">SUBMIT</button>
+                    </form>
+                </div>
+                <div>
+                 <a class="btn btn-md" href="" data-ng-click="likeBlog(eblog.blogId)" class="btn"><button type="button" class="btn btn-primary"><i class="fa fa-thumbs-up"></i> Like</button></a> {{eblog.likes}}
+                   
+</div>
+<script src="https://apis.google.com/js/plusone.js">
+</script>
+                <hr>
+
+                <!-- the comments -->
+                <div  ng-repeat="x in gblogcomm">
+                
+                <h3><i class="fa fa-user"></i>  
+                <br>
+                </h3>
+                <p>commented by: {{x.username}}</p>
+                <h3>{{x.cmnt}}</h3>
+                <p>date: {{x.cmntDate}}</p>
+</div>
+
+ 
+                
+         
+
+   	</div>   
+   	
+   	

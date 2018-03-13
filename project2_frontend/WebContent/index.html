@@ -16,15 +16,16 @@ body{background-color:#ECF0F1;}
     margin-bottom: 20px;
     border: 0px solid transparent;
     border-radius:0px;
-    
+     width:100% !important;
 }
 .navbar-brand {
    
     float: left;
     height:auto;
     padding: 10px 10px;
-    font-size: 18px;
-    line-height: 20px;
+    font-size: 20px;
+    line-height: 60px;
+    
 }
 .navbar-brand>img{ width:80%;}
 .navbar-inverse .navbar-nav > li > a {
@@ -49,27 +50,38 @@ body{background-color:#ECF0F1;}
       <a class="navbar-brand" href="#">HELLOgram</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
-      <ul data-ng-show="currentuser.role=='ROLE_USER'" class="nav navbar-nav">
+      <ul data-ng-show="currentuser.role=='ROLE_USER'||currentuser.role=='ROLE_ADMIN'" class="nav navbar-nav">
         
         <li><a href="#!job">Jobs</a></li>
         <li><a href="#!forums">Forum</a></li>
         <li ><a href="#!profile">My Profile</a></li>
-      
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-          <form class="navbar-form navbar-left">
-          
-           <div class="dropdown" data-ng-show="currentuser.role=='ROLE_USER'||currentuser.role=='ROLE_ADMIN'" >
-          <button   class="btn btn-default dropdown-toggle" type="button" id="users task" data-toggle="dropdown">Blog
-    <span class="caret"></span></button>
-    <ul class="dropdown-menu">
-    <li><a href="#!blogForm">Create Blog</a></li>
-    <li><a href="#!blog">View Blogs</a></li>
-    </ul>
+        <li>  <div class="dropdown" data-ng-show="currentuser.role=='ROLE_USER'||currentuser.role=='ROLE_ADMIN'" >
+         <button   class="btn btn-default dropdown-toggle" type="button" id="users task" data-toggle="dropdown">Blog
+  		 <span class="caret"></span></button>
+   		 <ul class="dropdown-menu">
+   		 <li><a href="#!blogForm">Create Blog</a></li>
+   		 <li><a href="#!blog">View Blogs</a></li>
+   		 <li><a href="#!myblogs">My Blogs</a></li>
+   		 </ul>
 		</div>
-          
-          
-            <div class="dropdown" data-ng-show="currentuser.role=='ROLE_ADMIN'" >
+		</li>
+       <li><a href="#!notifications"><span class="glyphicon glyphicon-globe"></span></a></li>
+     
+      </ul>
+       <li  data-ng-show="currentuser.role=='ROLE_ADMIN' || currentuser.role=='ROLE_USER' ">
+         <a href=""  style="color: White">HELLO {{currentuser.email}}</a>  </li>
+         
+        
+      
+      <ul class="nav navbar-nav navbar-right">
+      <form class="navbar-form navbar-left">
+      
+      <li data-ng-show="currentuser.role=='ROLE_ADMIN' || currentuser.role=='ROLE_USER' " >
+      <a href="#!usersearch" style="color: White">SEARCH</a>
+      </li>
+      
+   
+ <div class="dropdown" data-ng-show="currentuser.role=='ROLE_ADMIN'" >
  <button  class="btn btn-default dropdown-toggle" type="button" id="admin task" data-toggle="dropdown">Admin Task
   <span class="caret"></span></button>
   <ul class="dropdown-menu">
@@ -79,7 +91,7 @@ body{background-color:#ECF0F1;}
   </ul>
 </div>
 
-<li><a href="#!notifications"><span class="glyphicon glyphicon-globe"></span></a></li>
+
 
 </form>
         <li data-ng-hide="currentuser.role=='ROLE_ADMIN' || currentuser.role=='ROLE_USER'">
@@ -88,9 +100,6 @@ body{background-color:#ECF0F1;}
         <li data-ng-hide="currentuser.role=='ROLE_ADMIN' || currentuser.role=='ROLE_USER'">
         <a  href="#!login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         
-         <li  data-ng-show="currentuser.role=='ROLE_ADMIN' || currentuser.role=='ROLE_USER' ">
-         <a href=""  style="color: red">HELLO {{currentuser.email}}</a>  </li>
-         
          <li  data-ng-controller="UserCtrl"  data-ng-show="currentuser.role=='ROLE_ADMIN' || currentuser.role=='ROLE_USER' ">
          <a data-ng-click="logout()" ><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
       </ul>
@@ -112,11 +121,13 @@ body{background-color:#ECF0F1;}
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-cookies.min.js"></script>
+
 	
 <script src="JSFolder/app.js"></script>
 <script src="JSFolder/UserController.js"></script>
 <script src="JSFolder/jobController.js"></script>
 <script src="JSFolder/blogController.js"></script>
+<script src="JSFolder/FriendController.js"></script>
 
 
 </body>

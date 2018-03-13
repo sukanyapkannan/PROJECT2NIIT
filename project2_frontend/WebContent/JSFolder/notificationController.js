@@ -1,9 +1,9 @@
-/*app.controller("notificationcontroller", function ($scope,$http,$location,$rootScope) {
+app.controller("notificationcontroller", function ($scope,$http,$location,$rootScope) {
 	
 	$scope.Notifications={Notif:'',username:''};
 	function fetchAllNotifications()
 	{
-	$http.get("http://localhost:9090/project2_middleware/notifications/")
+	$http.get("http://localhost:9090/project2_middleware/notification/getAllNotis")
 		.then(function(response)
 		{
 			
@@ -22,7 +22,8 @@
 	 $scope.deletenoti=function(id)
 	 {
 		console.log("in delete notig method")
-		 $http.get("http://localhost:9090/project2_middleware/notifications/deleteNoti/"+id).then(fetchAllNotifications(),function(response){
+		 $http.get("http://localhost:9090/project2_middleware/notification/deleteNoti/"+id)
+		 .then(fetchAllNotifications(),function(response){
 			 console.log("notification deleted successfully")
 								
 			},function(error){
@@ -34,4 +35,4 @@
 
 	
 	
-});*/
+});

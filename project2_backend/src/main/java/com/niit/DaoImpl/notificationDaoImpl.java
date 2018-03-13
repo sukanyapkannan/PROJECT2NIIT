@@ -37,9 +37,9 @@ public class notificationDaoImpl implements notificationDao
 		
 	}
 	@Transactional
-	public ArrayList<notification> getAllNotifications(String username) {
+	public ArrayList<notification> getAllNotifications(String userName) {
 		Session session = sessionF.openSession();
-		ArrayList<notification> notis=(ArrayList<notification>)session.createQuery("from notification where username='"+username+"'").list();
+		ArrayList<notification> notis=(ArrayList<notification>)session.createQuery("from notification where username='"+userName+"'").list();
 		session.close();
 		return notis;
 	}
@@ -65,4 +65,5 @@ public class notificationDaoImpl implements notificationDao
 		session.close();
 		return noti;
 	}
+	
 }

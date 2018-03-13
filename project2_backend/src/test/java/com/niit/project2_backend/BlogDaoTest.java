@@ -28,7 +28,7 @@ public class BlogDaoTest
 		blogDao=(BlogDao)context.getBean("blogDao");
 	}
 		
-		
+		@Ignore
 		@Test
 		public void addBlog()
 		{

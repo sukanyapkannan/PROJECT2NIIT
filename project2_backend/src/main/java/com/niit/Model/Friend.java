@@ -2,6 +2,7 @@ package com.niit.Model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,28 +20,29 @@ private static final long serialVersionUID=1L;
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int friendId;
-	private String status;
-	private String fromId;
-	private String toId;
-	
-	public String getFromId() {
-		return fromId;
+    @Column(name="FriendReqId")
+	private int friendreqid; 
+    private int user_id;
+    private int friendid;
+	@Column(name="Status")
+	private  String status;
+	public int getFriendreqid() {
+		return friendreqid;
 	}
-	public void setFromId(String fromId) {
-		this.fromId = fromId;
+	public void setFriendreqid(int friendreqid) {
+		this.friendreqid = friendreqid;
 	}
-	public String getToId() {
-		return toId;
+	public int getUser_id() {
+		return user_id;
 	}
-	public void setToId(String toId) {
-		this.toId = toId;
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
 	}
-	public int getFriendId() {
-		return friendId;
+	public int getFriendid() {
+		return friendid;
 	}
-	public void setFriendId(int friendId) {
-		this.friendId = friendId;
+	public void setFriendid(int friendid) {
+		this.friendid = friendid;
 	}
 	public String getStatus() {
 		return status;
@@ -50,3 +52,7 @@ private static final long serialVersionUID=1L;
 	}
 	
 }
+
+
+
+

@@ -1,4 +1,6 @@
+C:\Users\user\workspace\project 2\project2_backend\src\main\java\com\niit\Dao\BlogPostLikesDao.java
 C:\Users\user\workspace\project 2\project2_backend\src\main\java\com\niit\Model\Forum.java
+C:\Users\user\workspace\project 2\project2_backend\src\main\java\com\niit\Model\BlogPostLikes.java
 C:\Users\user\workspace\project 2\project2_backend\src\main\java\com\niit\Model\Messages.java
 C:\Users\user\workspace\project 2\project2_backend\src\main\java\com\niit\Dao\UserDao.java
 C:\Users\user\workspace\project 2\project2_backend\src\main\java\com\niit\Model\ForumComment.java
@@ -18,6 +20,7 @@ C:\Users\user\workspace\project 2\project2_backend\src\main\java\com\niit\Model\
 C:\Users\user\workspace\project 2\project2_backend\src\main\java\com\niit\Dao\JobDao.java
 C:\Users\user\workspace\project 2\project2_backend\src\main\java\com\niit\DaoImpl\FriendDaoImpl.java
 C:\Users\user\workspace\project 2\project2_backend\src\main\java\com\niit\Model\Friend.java
+C:\Users\user\workspace\project 2\project2_backend\src\main\java\com\niit\DaoImpl\BlogPostLikesDaoImpl.java
 C:\Users\user\workspace\project 2\project2_backend\src\main\java\com\niit\Dao\FriendDao.java
 C:\Users\user\workspace\project 2\project2_backend\src\main\java\com\niit\Model\ErrorMessages.java
 C:\Users\user\workspace\project 2\project2_backend\src\main\java\com\niit\project2_backend\App.java

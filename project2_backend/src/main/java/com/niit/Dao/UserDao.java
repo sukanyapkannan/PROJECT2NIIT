@@ -1,6 +1,7 @@
 package com.niit.Dao;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.niit.Model.User;
@@ -11,7 +12,7 @@ public interface UserDao
 	
 	User getUser(int id);
 
-	List<User> getAllUser();
+	ArrayList<User> getAllUser();
 
 	
 	void updateUser(User user);
@@ -22,4 +23,8 @@ public interface UserDao
 
 	void updateOnlineStatus(User tempuser);
 	public User getUserbyemail(String email);
+	public User getUserbyId(int userId);
+	
+
+	
 }

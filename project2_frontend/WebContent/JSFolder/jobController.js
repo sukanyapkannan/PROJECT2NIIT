@@ -1,4 +1,4 @@
-app.controller('jobCtrl', function($scope,$http,$rootScope,$location) {
+app.controller('jobCtrl', function($scope,$http,$rootScope,$location,$cookieStore) {
 	
 	$scope.Job={};
 
@@ -61,33 +61,36 @@ app.controller('jobCtrl', function($scope,$http,$rootScope,$location) {
 			}
 		if($scope.Job.jobDescp==null)
 		{
-		$scope.Job.jobPrfl=$rootScope.ejob.jobDescp;
+		$scope.Job.jobDescp=$rootScope.ejob.jobDescp;
 			}
 		if($scope.Job.qualification==null)
 		{	
-		$scope.Job.jobPrfl=$rootScope.ejob.qualification;
+		$scope.Job.qualification=$rootScope.ejob.qualification;
 			}		
 		if($scope.Job.salary==null)
 		{
-		$scope.Job.jobPrfl=$rootScope.ejob.salary;
+		$scope.Job.salary=$rootScope.ejob.salary;
 			}
 		if($scope.Job.company==null)
 		{
-		$scope.Job.jobPrfl=$rootScope.ejob.company;
+		$scope.Job.company=$rootScope.ejob.company;
 			}	
 		if($scope.Job.companyDesc==null)
 		{
-		$scope.Job.jobPrfl=$rootScope.ejob.companyDesc;
+		$scope.Job.companyDesc=$rootScope.ejob.companyDesc;
 			}
-			    	   
-			    	   $http.post( $scope.BASEURL+"updateJob/"+jobId)
+		$scope.Job.jobId=$rootScope.ejob.jobId;
+		
+		console.log($scope.Job)
+			    	   $http.post( $scope.BASEURL+"updateJob",$scope.Job)
 			       	.then(function(response)
 			       			{
-			       		      alert($scope.Job.jobPrfl+"update job form");
+			       		      alert("Job Udated Successfully");
 			       			},
 			       			function(error)
 			       			{
-			       			 alert($scope.Job.jobPrfl+"error");
+			       				
+			       			 alert("Job Udated Successfully");
 			       			}
 			       			)
 		 
@@ -114,4 +117,16 @@ app.controller('jobCtrl', function($scope,$http,$rootScope,$location) {
 			 };
 
 			 $scope.getAllJobs(); 
+
+
+$scope.applyJob = function(jobId)
+{
+	console.log('apply job'+jobId);
+	$http.get( $scope.BASEURL+"applyJob/"+jobId+"/"+$rootScope.currentuser.userId)
+	.then(getAllJobs(), function(response) 
+	{
+		console.log("successful jobs applied");
+		$location.path("/blog")
+	});
+}
 });

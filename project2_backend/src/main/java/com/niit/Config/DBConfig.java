@@ -17,8 +17,11 @@ import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.niit.Model.Blog;
+import com.niit.Model.BlogComment;
+import com.niit.Model.BlogPostLikes;
 import com.niit.Model.Forum;
 import com.niit.Model.Friend;
+import com.niit.Model.JobApplications;
 import com.niit.Model.Jobs;
 import com.niit.Model.User;
 import com.niit.Model.notification;
@@ -40,6 +43,10 @@ public class DBConfig
 	        sessionBuilder.addAnnotatedClass(Forum.class);
 	        sessionBuilder.addAnnotatedClass(Friend.class);
 	        sessionBuilder.addAnnotatedClass(notification.class);
+	        sessionBuilder.addAnnotatedClass(JobApplications.class);
+	        sessionBuilder.addAnnotatedClass(BlogPostLikes.class);
+	        sessionBuilder.addAnnotatedClass(BlogComment.class);
+	        
 	        
 
 	        return sessionBuilder.buildSessionFactory();

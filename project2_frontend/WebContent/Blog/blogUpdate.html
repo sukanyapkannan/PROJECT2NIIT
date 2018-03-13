@@ -60,17 +60,17 @@ button {
 <div data-ng-controller="blogCtrl">
 <h2>Update Blog</h2>
 
-<form  style="border:1px solid #ccc" method="post">
+<form  style="border:1px solid #ccc" >
   <div class="container">
     <label><b>Blog Name</b></label>
-    <input type="text" placeholder="Enter Blog Name" name="blogName" ng-model="Blog.blogName"data-ng-value="" required>
+    <input type="text" placeholder="Enter Blog Name" name="blogName" ng-model="Blog.blogName"data-ng-value="eblog.blogName" required>
     <label><b>Blog Content</b></label>
-    <input type="text" placeholder="Enter Blog Content" name="blogContent" ng-model="Blog.blogContent" data-ng-value=""required>
+    <input type="text" placeholder="Enter Blog Content" name="blogContent" ng-model="Blog.blogContent" data-ng-value="eblog.blogContent"required>
     
    
     <div class="clearfix">
       <button type="button" class="cancelbtn">Cancel</button>
-      <button type="submit" ng-click="saveBlog()"class="signupbtn">Upload</button>
+      <button type="button" ng-click="updateBlog(eblog.blogId)"class="signupbtn">Upload</button>
     </div>
   </div>
 </form>

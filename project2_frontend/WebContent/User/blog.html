@@ -60,19 +60,23 @@ body {
                                 <div class="row-content">
                                     <div class="list-group-item-heading">
                                         <a href="#" title="sintret">
-                                            <small>{{currentuser.username}}</small>
+                                            <small>{{x.username}}</small>
                                         </a> 
                                     </div>
                                     <small>
-                                        <i class="glyphicon glyphicon-time"></i>{{x.createDate}}<span class="twitter"> <i class="fa fa-twitter"></i> <a target="_blank" href="https://twitter.com/sintret" alt="sintret" title="sintret">@sintret</a></span>
+                                        <i class="glyphicon glyphicon-time"></i>{{x.createDate}}<span class="twitter"> <i class="fa fa-twitter"></i> <a target="_blank" href="https://twitter.com/sintret" alt="sintret" title="sintret">@{{x.username}}</a></span>
                                         <br>
                                         <span class="explore"><i class="glyphicon glyphicon-th"></i> <a href="#">{{x.createDate}}</a></span>
                                     </small>
                                 </div>
                             </div>
                         </div>
-                        <h4><a href="#">{{x.blogName}}</a></h4>
+                        <h4><a  data-ng-click="viewBlogById(x.blogId)">{{x.blogName}}</a></h4>
                         <p>{{x.blogContent}}</p>
+                        
+                       <!--  <a class="btn btn-warning btn-sm" href="#!blogUpdate" data-ng-click="getBlogById(x.blogId)"><span class="glyphicon glyphicon-pencil"></span> Edit</a>
+                        <a class="btn btn-warning btn-sm" data-ng-click="deleteBlog(x.blogId)"><span class="glyphicon glyphicon-trash"></span> Delete</a>
+                         -->
                     </div> 
                 </div>
                 <hr>

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.niit.Dao.JobDao;
+import com.niit.Model.JobApplications;
 import com.niit.Model.Jobs;
 
 
@@ -48,13 +49,13 @@ public class JobController {
 		return "JOB deleteed Successfully";
 		
 	}
-	@RequestMapping(value="/updateJob/{jobId}",method=RequestMethod.POST)
-	public String update(@PathVariable("jobId") int id)
+	@RequestMapping(value="/updateJob",method=RequestMethod.POST)
+	public ResponseEntity<String> update(@RequestBody Jobs job)
 	{
-		Jobs j=jdao.getjob(id);
-		jdao.updatejob(j);
 		
-		return "JOB updated Successfully";
+		jdao.updatejob(job);
+		
+		return new ResponseEntity<String>("JOB updated Successfully",HttpStatus.OK);
 		
 	}
 	
@@ -86,5 +87,23 @@ public class JobController {
 		}
 		
 				
+	}
+	
+	@RequestMapping(value="/applyJob/{jobId}/{userId}",method=RequestMethod.GET,headers = "Accept=application/json")
+	public ResponseEntity<String> applyJob(@PathVariable("jobId") int jobid,@PathVariable("userId") int userid)
+	{
+		System.out.println("in apply job user controller");
+		JobApplications jobapplications=new JobApplications();
+		jobapplications.setJobid(jobid);
+		jobapplications.setUserid(userid);
+		boolean isSaved=jdao.applyJob(jobapplications);
+		if(isSaved)
+		{
+			return new ResponseEntity<String>("job applied successfully",HttpStatus.OK);
+		}
+		else
+		{
+			return new ResponseEntity<String>("job apply failed",HttpStatus.BAD_REQUEST);
+		}
 	}
 }

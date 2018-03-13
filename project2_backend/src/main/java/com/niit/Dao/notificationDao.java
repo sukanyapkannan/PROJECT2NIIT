@@ -7,7 +7,7 @@ import com.niit.Model.notification;
 public interface notificationDao
 {
 	public boolean addNotifications(notification notification) ;
-	public ArrayList<notification> getAllNotifications( String username) ;
+	public ArrayList<notification> getAllNotifications( String userName) ;
 	public boolean deleteNotifications(notification notification);
 	public notification getNotifications(int notifid);
 }

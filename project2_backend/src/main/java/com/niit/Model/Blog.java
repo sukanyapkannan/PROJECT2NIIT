@@ -26,6 +26,8 @@ private static final long serialVersionUID=1L;
 	private String createDate;
 	private String status;
 	private int likes;
+	private int userid;
+	private String username;
 	public int getBlogId() {
 		return blogId;
 	}
@@ -63,8 +65,18 @@ private static final long serialVersionUID=1L;
 	public void setCreateDate(String createDate) {
 		this.createDate = createDate;
 	}
-	
-	
+	public int getUserid() {
+		return userid;
+	}
+	public void setUserid(int userid) {
+		this.userid = userid;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
 	
 	
 }

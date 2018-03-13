@@ -48,11 +48,12 @@ public class UserDaoImpl implements UserDao
 
 
 
-	public List<User> getAllUser() 
+	public ArrayList<User> getAllUser() 
 	{
 		Session k=sessionF.openSession();
-		List<User> ulist=k.createQuery("from User").list();
-		return ulist;	
+		ArrayList<User> ulist=(ArrayList<User>) k.createQuery("from User").list();
+		return ulist;
+		
 				
 	}
 
@@ -122,4 +123,23 @@ public class UserDaoImpl implements UserDao
 		session.close();
 		return user;
 	}
-}
+
+
+	public User getUserbyId(int userId) 
+	{
+User user=new User();
+		
+		Session session= sessionF.openSession();
+		Query query=session.createQuery("from User where email='"+userId+"'");
+		 user=(User)query.list().get(0);
+		session.close();
+		return user;
+	}
+
+
+	
+
+	
+
+	}
+

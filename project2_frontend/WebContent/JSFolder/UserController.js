@@ -13,13 +13,15 @@ app.controller('UserCtrl', function($scope,$http,$cookieStore,$rootScope,$locati
     	.then(function(response)
     			{
     		      alert($scope.User.email+"Registered Successfully");
+    		      alert($scope.User.email+"Please wait until you are approved by the admin");
     			},
     			function(error)
     			{
     			 alert($scope.User.email+"Registered unSuccessfully");
     			}
+    			
     			)
-    	
+    	 $location.path("/")
     };
   
     $scope.login = function() {

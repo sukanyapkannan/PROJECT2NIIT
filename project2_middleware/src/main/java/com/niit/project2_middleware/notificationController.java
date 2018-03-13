@@ -1,4 +1,4 @@
-/*package com.niit.project2_middleware;
+package com.niit.project2_middleware;
 
 import java.util.ArrayList;
 
@@ -17,18 +17,19 @@ import com.niit.Model.User;
 import com.niit.Model.notification;
 
 @RestController
-@RequestMapping("/notifications")
-public class notificationController 
-{
+@RequestMapping("/notification")
+public class notificationController {
 	@Autowired 
-	notificationDao ndao;
+	notificationDao notificationsDAO;
+	
+	
 	
 	@RequestMapping(value="/getAllNotis",method=RequestMethod.GET,headers = "Accept=application/json")
 	public ResponseEntity<ArrayList<notification>> getAllNotis(HttpSession session){
 		User user=(User)session.getAttribute("currentuser");
 		System.out.println("in getall notis");
 		System.out.println(user.getEmail());
-		ArrayList<notification> notis=(ArrayList<notification>)ndao.getAllNotifications(user.getEmail());
+		ArrayList<notification> notis=(ArrayList<notification>)notificationsDAO.getAllNotifications(user.getEmail());
 		for(notification n:notis)
 		{
 			System.err.println(n.getNoti());
@@ -46,19 +47,18 @@ public class notificationController
 	
 	User us=(User)session.getAttribute("currentuser");
 		
-	notification noti=ndao.getNotifications(notifid);
-	if(ndao.deleteNotifications(noti))
+	notification noti=notificationsDAO.getNotifications(notifid);
+	if(notificationsDAO.deleteNotifications(noti))
 	{
-		ArrayList<notification> bc=ndao.getAllNotifications(us.getEmail());
+		ArrayList<notification> bc=notificationsDAO.getAllNotifications(us.getEmail());
 	
 		return new ResponseEntity<ArrayList<notification>>(bc,HttpStatus.OK);	
-	
+
 	}
 	else
 	{
 		return null;
 	}
-	
+
 	}
 }
-*/
