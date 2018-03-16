@@ -14,6 +14,9 @@ app.config(function($routeProvider) {
     .when("/profile", {
         templateUrl : "User/myProfile.html"
     })
+    .when("/friendpreview", {
+        templateUrl : "friend/FriendPreview.html"
+    })
     .when("/blog", {
         templateUrl : "User/blog.html"
     })
@@ -50,8 +53,15 @@ app.config(function($routeProvider) {
     .when("/usersearch", {
         templateUrl : "friend/UsersList.html"
     })
-    .when("/UserRequest", {
-        templateUrl : "friend/UserRequest.html"
+    
+    .when("/friendslist", {
+        templateUrl : "friend/FriendsListing.html"
+    })
+     .when("/pendingrequests", {
+        templateUrl : "friend/PendingRequests.html"
+    })
+    .when("/chat", {
+        templateUrl : "chat/Chat.html"
     })
    
     .when("/forums", 
@@ -132,6 +142,7 @@ app.run( function ($rootScope, $location, $cookieStore, $http)
 				    {
 				        $http.defaults.headers.common['Authorization'] = 'Basic' + 	$rootScope.gblogcomm; 
 				    }
+				   
 				    
 		});
 				    

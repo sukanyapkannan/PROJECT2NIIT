@@ -25,7 +25,15 @@ public class User  extends ErrorMessages
 	private String role;
 	private boolean isOnline;
 	private String status;
+	private String image;
 	
+	
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
 	public int getUserId() {
 		return userId;
 	}

@@ -39,7 +39,19 @@
                 </div>
                 </div>
                  
-  <!-- the comment box -->
+
+                <!-- the comments -->
+                <div  ng-repeat="x in gblogcomm">
+                
+                <h3><i class="fa fa-user"></i>  
+                <br>
+                </h3>
+                <p>commented by: {{x.username}}</p>
+                <h3>{{x.cmnt}}</h3>
+                <p>date: {{x.cmntDate}}</p>
+</div>
+
+   <!-- the comment box -->
                 <div class="container"  >
                     
                     <form role="form" data-ng-submit="addBlogComment(eblog.blogId)">
@@ -56,18 +68,6 @@
 <script src="https://apis.google.com/js/plusone.js">
 </script>
                 <hr>
-
-                <!-- the comments -->
-                <div  ng-repeat="x in gblogcomm">
-                
-                <h3><i class="fa fa-user"></i>  
-                <br>
-                </h3>
-                <p>commented by: {{x.username}}</p>
-                <h3>{{x.cmnt}}</h3>
-                <p>date: {{x.cmntDate}}</p>
-</div>
-
  
                 
          

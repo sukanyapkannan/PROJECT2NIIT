@@ -1,8 +1,10 @@
 com\niit\Model\Blog.class
 com\niit\Model\Jobs.class
+com\niit\Model\OutputMessage.class
 com\niit\Dao\BlogDao.class
 com\niit\Model\User.class
 com\niit\Dao\notificationDao.class
+com\niit\DaoImpl\BlogPostLikesDaoImpl.class
 com\niit\project2_backend\App.class
 com\niit\Dao\FriendDao.class
 com\niit\DaoImpl\UserDaoImpl.class
@@ -11,12 +13,16 @@ com\niit\Model\BlogComment.class
 com\niit\Dao\UserDao.class
 com\niit\Model\Friend.class
 com\niit\Dao\ForumDao.class
+com\niit\Model\BlogPostLikes.class
 com\niit\Model\ErrorMessages.class
+com\niit\Dao\BlogPostLikesDao.class
+com\niit\Model\Messages.class
 com\niit\DaoImpl\JobDaoImpl.class
 com\niit\Dao\JobDao.class
 com\niit\DaoImpl\BlogDaoImpl.class
 com\niit\DaoImpl\FriendDaoImpl.class
 com\niit\Model\ForumComment.class
+com\niit\Model\JobApplications.class
 com\niit\Model\notification.class
 com\niit\DaoImpl\ForumDaoImpl.class
 com\niit\DaoImpl\notificationDaoImpl.class

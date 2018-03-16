@@ -1,11 +1,14 @@
 <style>
 @import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
 body {
-    padding: 30px 0px 60px;
+background:  url("./images/bg.jpg");
+   
 }
 .success {background-color: #4CAF50;}
 .danger {background-color: #f44336;}
-.panel > .list-group .list-group-item:first-child {
+.panel > .list-group .list-group-item:first-child 
+{
+background-color: #D2691E;
     /*border-top: 1px solid rgb(204, 204, 204);*/
 }
 @media (max-width: 767px) {
@@ -87,28 +90,18 @@ ul.c-controls li a:hover {
 </style>
 
 
-
-
-
-
 <div class="container" >
    
 
-    <div class="row" data-ng-controller="UserCtrl">
+    <div class="row" data-ng-controller="friendcontroller">
         <div class="col-xs-12 col-sm-offset-3 col-sm-6">
-            <div class="panel panel-default">
+            <div class="panel panel-default" >
                 <div class="panel-heading c-list">
                     <span class="title">Users List</span>
-                    <ul class="pull-right c-controls">
+                   <!--  <ul class="pull-right c-controls">
                         <li><a href="#" class="hide-search" data-command="toggle-search" data-toggle="tooltip" data-placement="top" title="Toggle Search"><i class="fa fa-ellipsis-v"></i></a></li>
-                    </ul>
+                    </ul> -->
                 </div>
-                <div class="input-group c-search">
-                            <input type="text" class="form-control" id="contact-list-search" data-ng-model="search">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search text-muted"></span></button>
-                            </span>
-                        </div>
                 
                <!--  <div class="row" style="display: none;">
                     <div class="col-xs-12">
@@ -119,25 +112,34 @@ ul.c-controls li a:hover {
                             </span>
                         </div>
                     </div>
-                </div> -->
-                
-              
-                <ul class="list-group" id="contact-list"  data-ng-repeat="u in users|filter:{username:search}">
+                </div>
+                 -->
+               <div class="input-group c-search">
+                            <input type="text" class="form-control" id="contact-list-search" data-ng-model="search">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search text-muted"></span></button>
+                            </span>
+                        </div>
+                <ul class="list-group" id="contact-list"  data-ng-repeat="u in otherusers|filter:{username:search}">
                     <li class="list-group-item" data-ng-if="u.username!=currentuser.username&&u.status == 'A'">
                         <div class="col-xs-12 col-sm-3">
-                            <img   class="img-rounded" data-ng-src="images/{{u.user_id}}.jpg" onerror="this.src='images/'" class="img-circle" height="100" width="80">
+                            <img   class="img-rounded" data-ng-src="http://localhost:9090/project2_frontend/images/{{u.userId}}.jpg" onerror="this.src='images/user.png'" class="img-circle" height="100" width="80">
                         </div>
-                        <div class="col-xs-12 col-sm-9">
-                            <span class="name">{{u.username}}</span><br/>
+                        <div class="col-xs-12 col-sm-9" style="color:#F0FFFF" >
+                            <span class="name"  >{{u.username}}</span><br/>
                             <h6><span class="name">{{u.address}}</span><br/></h6>
+                            <div class="caption prod-caption"> 
+                    
+             <button class="btn primary"><a data-ng-click="insertFriend(u.userId)">Sent Friend Request</a></button>
+               </div>   
                             <div >    
   
       </div>
       </div>
-             <div class="caption prod-caption"> 
-       <!--       <div class="pro-name">{{other.firstname}}  {{other.lastname}}</div> -->              
-             <button class="btn primary"><a data-ng-controller="friendcontroller" data-ng-click="insertFriend(u.userId)">Sent Friend Request</a></button>
-               </div>   
+             <!-- <div class="caption prod-caption"> 
+                   
+             <button class="btn primary"><a href="#!friendpreview" data-ng-click="friendpreview(user_id)">view Friend</a></button>
+               </div>   --> 
                </li>
                </ul>         
                             

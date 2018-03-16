@@ -6,11 +6,10 @@ public class OutputMessage extends Messages
 {
 	private Date time;
 
-	public OutputMessage(Messages original, Date time) {
-		
-		super();
-		this.time = time;
-		
+	public OutputMessage(Messages original,Date time)
+	{
+		super(original.getId(),original.getMessage());
+		this.setTime(time);
 	}
 
 	public Date getTime() {
@@ -20,6 +19,4 @@ public class OutputMessage extends Messages
 	public void setTime(Date time) {
 		this.time = time;
 	}
-
-
 }

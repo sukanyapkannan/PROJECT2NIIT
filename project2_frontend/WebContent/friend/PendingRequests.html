@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+            
+  <div data-ng-controller="friendrequestcontroller">
+
+<div class="card card-1" style="margin-top:25px;margin-right: 25px;margin-left: 25px" >
+
+			
+					<h1><b></b> Pending Requests</b></h1>
+		
+      <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Username</th> 
+              <th>Address</th>
+              <th>Action</th>
+              
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="x in myfriendreqs" >
+            
+         	<td><img data-ng-src="http://localhost:9090/project2_frontend/images/{{x.userId}}.jpg" onerror="this.src='images/user.png'" class="img-circle" height="40" width="40"></td>
+    
+              <td>{{x.username}}</td>
+              <td>{{x.address}}</td>
+              <td><div class="btn-group"> <a data-ng-click="acceptfriend(x.userId)"  class="btn btn-primary">ACCEPT</a></div>
+        <div class="btn-group"> <a data-ng-click="rejectfriend(x.userId)"  class="btn btn-primary">REJECT</a></div></td>
+      </tr>
+          </tbody>
+          <tfoot>
+            
+          </tfoot>
+        </table>
+        </div>
+ 
+ 
+ 
+ </div>
+
+<style>
+
+body {
+	background:  url("./images/bg.jpg");
+	font-family: 'Open Sans', Arial, Helvetica, Sans-serif, Verdana, Tahoma;
+}
+</style>
+</body>
+</html>

@@ -57,6 +57,7 @@ public class UserDaoImpl implements UserDao
 				
 	}
 
+	
 
 	
 
@@ -130,10 +131,18 @@ public class UserDaoImpl implements UserDao
 User user=new User();
 		
 		Session session= sessionF.openSession();
-		Query query=session.createQuery("from User where email='"+userId+"'");
+		Query query=session.createQuery("from User where userId='"+userId+"'");
 		 user=(User)query.list().get(0);
 		session.close();
 		return user;
+	}
+
+
+	public ArrayList<User> getAllUsers() 
+	{
+		Session k=sessionF.openSession();
+		ArrayList<User> uslist=(ArrayList<User>) k.createQuery("select * from User where userId in (select userId from User where userId!=? minus (select fromId from Friend where friendid=? union select friendid from Friend where user_id=?))").list();
+		return uslist;
 	}
 
 

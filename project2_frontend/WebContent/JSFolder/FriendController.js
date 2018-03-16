@@ -5,14 +5,12 @@ app.controller("friendrequestcontroller", function ($scope,$http,$location,$root
 	
 	 $http.get("http://localhost:9090/project2_middleware/friend/getAllMyFriendRequests/"+$rootScope.currentuser.userId)
 	    .then(function(response)
-	    		{
-	    	
-	    
+	    {
 		 $scope.myfriendreqs=response.data;
-	
-		console.log("all my friend request fetched")
-							
-		},function(error){
+		 console.log("all my friend request fetched")
+	    }
+	    ,function(error)
+	    {
 			console.log("Error on retrieving friends")
 		});
 	}
@@ -43,35 +41,29 @@ app.controller("friendrequestcontroller", function ($scope,$http,$location,$root
 
 
 
-app.controller("friendcontroller", function ($scope,$http,$location,$rootScope) {
-	
-	
-	
+app.controller("friendcontroller", function ($scope,$http,$location,$rootScope) 
+		{
 	function fetchAlluser()
 	{
 	
-	 $http.get("http://localhost:9090/project2_middleware/user/getAllUser/"+ $rootScope.currentuser.userId)
+	 $http.get("http://localhost:9090/project2_middleware/user/getAllUser/")
 	    .then(function(response)
-	    		{
-	    	
-	    
-		 $scope.users=response.data;
-				
-		},function(error){
+	    { 
+		 $scope.users=response.data;		
+		}
+	    ,function(error)
+	    {
 			console.error("Error while fetching user");
 		});
 	}
-	
-	
 	fetchAlluser();
 	
 	function fetchAllUsers()
 	{
-		
-		
 		$http.get("http://localhost:9090/project2_middleware/friend/getMyFriends/"+ $rootScope.currentuser.userId)
 
-		.then(function(response) {
+		.then(function(response)
+		{
 			$scope.myfriends = response.data;
 			console.log("all my friends fetched")
 		},function(error)
@@ -111,10 +103,7 @@ app.controller("friendcontroller", function ($scope,$http,$location,$rootScope) 
 		{
 			console.log("Error on retrieving friends")
 		});
-		
-		
-		
-		
+	
 	}
 	;
 	fetchAllUsers();
@@ -127,6 +116,7 @@ app.controller("friendcontroller", function ($scope,$http,$location,$rootScope) 
 		console.log('entered add friend method'+friendid);
 		$http.get('http://localhost:9090/project2_middleware/friend/addFriend/'+$rootScope.currentuser.userId+'/'+friendid)
 		.then(fetchAllUsers(), function(response) {
+			alert("succesfuly sent friend request");
 			console.log("successful friend add ");
 			$location.path("/usersearch")
 		});
@@ -139,7 +129,8 @@ app.controller("friendcontroller", function ($scope,$http,$location,$rootScope) 
 	{
 	console.log("in unfriend method")
 		$http.get('http://localhost:9090/project2_middleware/friend/unfriend/'+$rootScope.currentuser.userId+'/'+friendid)
-		.then(fetchAllUsers(), function(response) {
+		.then(fetchAllUsers(), function(response)
+				{
 			console.log("successful friend add ");
 			$location.path("/usersearch")
 		});
@@ -209,7 +200,31 @@ app.controller("friendcontroller", function ($scope,$http,$location,$rootScope) 
 		
 	}
 	}
-	
-	
+	/*$rootScope.friendpreview=function(friendid)
+	{
+		
+		console.log(+$rootScope.currentuser.userid)
+		if(friendid==$rootScope.currentuser.userid)
+			{
+			$location.path("/profile")
+			}
+		else
+			{
+		$http.get("http://localhost:9090/project2_middleware/user/getUserById/"+friendid)
+
+		.then(function(response)
+				{
+			$rootScope.friendpreviewdata = response.data;
+			$scope.fr=response.data;
+			console.log($rootScope.friendpreviewdata.email);
+			console.log($rootScope.friendpreviewdata.userId);
+			console.log($rootScope.currentuser.userId);
+		},function(error)
+		{
+			console.log("Error on retrieving forums")
+		});
+			}
+	}*/
+			
 });
 

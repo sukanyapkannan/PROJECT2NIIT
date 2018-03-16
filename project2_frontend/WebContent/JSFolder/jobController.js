@@ -14,10 +14,10 @@ app.controller('jobCtrl', function($scope,$http,$rootScope,$location,$cookieStor
 	       			},
 	       			function(error)
 	       			{
-	       			 alert($scope.Job.jobPrfl+"job added unSuccessfully");
+	       			 alert($scope.Job.jobPrfl+"job added Successfully");
 	       			}
 	       			)
- 
+	       			 $location.path("/job")
 	       
  
 	    };

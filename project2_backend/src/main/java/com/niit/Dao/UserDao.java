@@ -13,7 +13,7 @@ public interface UserDao
 	User getUser(int id);
 
 	ArrayList<User> getAllUser();
-
+	public ArrayList<User> getAllUsers();
 	
 	void updateUser(User user);
 

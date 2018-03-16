@@ -169,4 +169,20 @@ $scope.getAllUser();
 						
 					});
 		 }
+		
 	});
+
+app.controller("picuploadcontroller", function ($scope,$location,$http,$rootScope,$cookieStore) {
+
+	 $http.post("http://localhost:9090/project2_middleware/user/login",$rootScope.currentuser).then(function(response)
+			 {
+		
+		
+		 $rootScope.currentuser=response.data;
+		 $cookieStore.put('user',response.data);
+		
+		
+			 });
+	
+	
+});

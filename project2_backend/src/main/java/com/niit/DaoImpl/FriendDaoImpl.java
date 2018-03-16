@@ -21,6 +21,8 @@ public class FriendDaoImpl implements FriendDao
 {
 	@Autowired
 	private SessionFactory sessionFactory;
+	
+//accept friend requests
 	@Transactional
 	public boolean addFriend(Friend friend) {
 		try
@@ -41,7 +43,7 @@ public class FriendDaoImpl implements FriendDao
 		try
 		{Session session=sessionFactory.openSession();
 		Friend friend=(Friend) session.get(Friend.class,friendreqid);
-		friend.setStatus("YES");
+		friend.setStatus("A");
 		session.saveOrUpdate(friend);
 		session.close();
 		return true;
@@ -61,7 +63,7 @@ public class FriendDaoImpl implements FriendDao
 		try
 		{Session session=sessionFactory.openSession();
 		Friend friend=(Friend) session.get(Friend.class,friendreqid);
-		friend.setStatus("NO");
+		friend.setStatus("R");
 		session.saveOrUpdate(friend);
 		session.close();
 		return true;
@@ -98,7 +100,7 @@ public class FriendDaoImpl implements FriendDao
 @Transactional
 public ArrayList<Friend> getAllMyFriend(int myid) {
 	Session session = sessionFactory.openSession();
-	Query q= session.createQuery("from Friend where status='YES' and (user_id="+myid+" or friendid="+myid+")" );
+	Query q= session.createQuery("from Friend where status='A' and (user_id="+myid+" or friendid="+myid+")" );
 ArrayList<Friend> myfriends=(ArrayList<Friend>)q.list();
 return myfriends;
 	}
@@ -189,7 +191,7 @@ public Friend acceptfriendrequest(Friend friend)
 @Transactional
 public ArrayList<Friend> getAllMyFriendpend(int myid) {
 	Session session = sessionFactory.openSession();
-	Query q= session.createQuery("from Friend where (user_id="+myid+" or friendid="+myid+")");
+	Query q= session.createQuery("from Friend where(user_id="+myid+" or friendid="+myid+")");
 ArrayList<Friend> myfriends=(ArrayList<Friend>)q.list();
 return myfriends;
 
@@ -208,5 +210,6 @@ public Friend rejectfriendrequest(Friend friend) {
 	return null;
 	}
 }
+
 
 }

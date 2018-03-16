@@ -29,19 +29,14 @@ public class FriendController
 	@RequestMapping(value="/addFriend/{myid}/{friendid}",method=RequestMethod.GET)
 	public ResponseEntity<String> addBlog(@PathVariable("myid") int myid,@PathVariable("friendid") int friendid){
 	
-Friend friend=new Friend();
-
-friend.setUser_id(myid);
-friend.setFriendid(friendid);
-friend.setStatus("P");
-
-		
-		
+		Friend friend=new Friend();
+		friend.setUser_id(myid);
+		friend.setFriendid(friendid);
+		friend.setStatus("P");
 		boolean isSaved=friendDAO.addFriend(friend);
 		if(isSaved)
 		{
-			
-		return new ResponseEntity<String>("Adding friend successfull",HttpStatus.OK);
+			return new ResponseEntity<String>("Adding friend successfull",HttpStatus.OK);
 		}
 		else
 		{	
@@ -53,11 +48,8 @@ friend.setStatus("P");
 	 @RequestMapping(value="/getMyFriends/{myid}",method=RequestMethod.GET)
 	 public ArrayList<User> getMyFriends(@PathVariable("myid") int myid)
 	 {
-		 
 	ArrayList<Friend> myFriends=friendDAO.getAllMyFriend(myid) ;
 	ArrayList<User> user=new ArrayList<User>();
-	
-	
 	for(Friend s:myFriends)
 	{
 		if(s.getUser_id()==myid)
@@ -197,11 +189,9 @@ for(User us:user)
 		 ArrayList<User> frequests =new ArrayList<User>(); 
 	 ArrayList<Friend> frireq=friendDAO.getAllFriendRequestsByUser(myid);
 	 for(Friend f:frireq)
-	 {
-		 System.err.println(f.getUser_id());
-	 }
-	 
-	 
+	 	{
+		 	System.err.println(f.getUser_id());
+	 	}
 	 for(Friend f:frireq)
 	 {
 
@@ -236,7 +226,7 @@ for(User us:user)
 	 	List<Friend> fr=friendDAO.getfriendrequest(myid, friendid);
 	 	for(Friend f:fr)
 	 	{
-	 		f.setStatus("YES");
+	 		f.setStatus("A");
 	 		friendDAO.acceptfriendrequest(f);
 	 	}
 	 return null;
@@ -248,9 +238,11 @@ for(User us:user)
 	 	List<Friend> fr=friendDAO.getfriendrequest(myid, friendid);
 	 	for(Friend f:fr)
 	 	{
-	 		f.setStatus("NO");
+	 		f.setStatus("R");
 	 		friendDAO.rejectfriendrequest(f);
 	 	}
 return null;
 }
+	 
+	
 }

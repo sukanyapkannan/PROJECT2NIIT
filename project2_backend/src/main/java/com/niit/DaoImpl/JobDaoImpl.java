@@ -19,7 +19,7 @@ public class JobDaoImpl implements JobDao
 
 	@Autowired
 	private SessionFactory sessionF;
-	public JobDaoImpl(SessionFactory sessionF)
+	/*public JobDaoImpl(SessionFactory sessionF)
 	{
 		super();
 		this.sessionF=sessionF;
@@ -30,7 +30,7 @@ public class JobDaoImpl implements JobDao
 		
 	}
 	
-	
+	*/
 	public boolean addjob(Jobs job)
 	{
 		try

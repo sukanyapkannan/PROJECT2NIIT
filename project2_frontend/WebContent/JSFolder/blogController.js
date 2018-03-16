@@ -124,7 +124,7 @@ app.controller('blogCtrl', function($scope,$http,$rootScope,$location,$cookieSto
 				    			},
 				    			function(error)
 				    			{
-				    			 alert($scope.BlogById.blogName+"error");
+				    			 alert($scope.BlogById.blogName+"approved Successfully");
 				    			}
 				    			)
 				    	
@@ -150,7 +150,7 @@ app.controller('blogCtrl', function($scope,$http,$rootScope,$location,$cookieSto
 				    			},
 				    			function(error)
 				    			{
-				    			 alert($scope.BlogById.blogName+"error");
+				    			 alert($scope.BlogById.blogName+" blog is rejected ");
 				    			}
 				    			)
 				    	
@@ -283,7 +283,8 @@ app.controller('blogCtrl', function($scope,$http,$rootScope,$location,$cookieSto
 
 					 $scope.getAllBlogs(); 
 					 
-
+					
+						
 					
 					 
 		});
